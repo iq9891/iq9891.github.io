@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+.scroll3D {width:300px;margin:100px auto 0;position:relative;}
+.div {width:100%;height:200px;
+perspective: 1000px;border:1px solid red;position:relative;
+overflow:hidden;
+}
+.div .divScroll {width:100%;height:200px;-webkit-transform:rotateY(0deg) rotateX(0deg) rotateZ(0deg);transform-style:preserve-3d; -webkit-transform-style:preserve-3d;
+background:#fff;}
+.ul {width:100%;height:100%;
+transform-style:preserve-3d; -webkit-transform-style:preserve-3d; -webkit-transform-origin:center center;transform-origin:center center;background:-rgba(255,0,0,0.1);-webkit-transform: rotateX(120deg);}
+.ul li {font-size:20px;position:absolute;width:54px;height:22px;text-align:center;color:#aaa;}
+
+
+.div2 {height:25px;position:absolute;top:90px;left:0px;}
+.div2 .divScroll {margin-top: -88px;}
+.ul2 li {font-weight:bold;color:#555;}
+
+.anim {-webkit-transition: transform 0.5s;}
+

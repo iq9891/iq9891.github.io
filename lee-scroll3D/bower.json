@@ -1,0 +1,11 @@
+{
+  "name": "lee-scroll3D-example",
+  "version": "0.0.1",
+  "dependencies": {
+    "zepto": "1.1.6"
+  },
+  "devDependencies": {
+  },
+  "appPath": "lee-scroll3D-example",
+  "moduleName": "lee-scroll3D-example"
+}
