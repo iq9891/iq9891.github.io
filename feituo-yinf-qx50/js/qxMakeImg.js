@@ -109,7 +109,7 @@ function main(){
 	layer.addChild(close);
 	close.addEventListener(LMouseEvent.MOUSE_DOWN, function(){
 		//关闭
-		window.location.href = 'QxIndex.html';
+		window.location.href = 'index.html';
 	});
 
 	//合成图片
