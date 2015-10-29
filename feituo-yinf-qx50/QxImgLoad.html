@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta id="viewport" name="viewport" content="width=640,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="MobileOptimized" content="800">
+    <title>英菲尼迪</title>
+	<script src="js/zepto.min.js"></script>
+	<script src="js/zepto.view.js"></script>
+	<link href="css/qxStyle.css" type="text/css" rel="stylesheet" />
+	<script src="js/touch.min.js"></script>
+</head>
+<body>
+<div class="mid xqBg hbBg">
+	<h2 class="r w100 qxH2">
+		<img src="images/titTop640.png" class="db w100" />
+		<a href="QxIndex.html" class="a close cw">关闭</a>
+	</h2>
+	<h3 class="mid w540 fs26 fwn wzyy000 qxH3">上传个性照片</h3>
+	<section class="mid w540 qxlBtnBox">
+		<a href="QxLogin.html" class="qxMerge tac fs22 qxlBtnBoxL fl">上一步</a>
+		<a href="QxMakeImg.html" class="qxMerge tac fs22 qxlBtnBoxR fr">下一步</a>
+	</section>
+	<section class="bg0004 mid qxlBox">
+		<div class="clear w100 qxlBoxTop">
+			<p class="qxlBoxTopL fs20 fl">上传照片</p>
+			<div class="r yj4 bgfff qxlBoxTopR fl">
+				<input type="text" id="textfield" class="fl lh52 fs16 setInp qxlBoxTopRinp" />
+				<a href="javascript:;" class="fl lh52 tac fs20 bgb31e22 cfff yj4 qxlBoxTopRbtn">浏览</a>
+				<input type="file" name="fileField" class="a lt0 o0 qxlField" id="qxlField" size="28" onchange="document.getElementById('textfield').value=this.value">
+			</div>
+		</div>
+		<p class="lh30 qxlBoxInfo">温馨提示：活动支持Jpg或Png文件格式，上传文件大小小于4M。</p>
+	</section>
+	<section class="w540 mid mt30 qxlBox2">
+		<img src="images/qxlImg1.jpg" class="db w100" />
+		<img src="images/qxlImg2.png" class="db w100" />
+	</section>
+	<section class="mt40"><img src="images/tel640.png" class="db w100" /></section>
+</div>
+</body>
+</html>
