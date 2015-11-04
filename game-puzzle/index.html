@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>东标508拼图</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="css/buttons.css" type="text/css" charset="utf-8" />
+    <script src="js/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+    <script type="text/javascript" language="javascript">
+
+        // 该函数由Simon Willison编写,它只有一个参数,该参数表示被调用的函数名(在页面加载完毕时执行的函数的名字)
+        function addLoadEvent(func) {
+            var oldOnload = window.onload;
+            if (typeof window.onload != 'function') {
+                window.onload = func;
+            }
+            else {
+                window.onload = function () {
+                    oldOnload();
+                    func();
+                }
+            }
+        }
+        // 添加Load事件处理
+        addLoadEvent(hideMenu);
+        function hideMenu() {
+            setTimeout("window.scrollTo(0, 0)", 1);
+        }
+    </script>
+</head>
+<body>
+
+<!-- JIGSAW CANVAS -->
+<div id="canvas-wrap">
+    <canvas id="canvas"></canvas>
+    <canvas id="buffer"></canvas>
+    <canvas class="hide" id="image-preview" ></canvas>
+</div>
+
+<!-- GAME OPTIONS -->
+<ul id="game-options">
+    <li><b id="clock" class="button">00:00:00</b></li>
+    <li><a href="#" id="JIGSAW_SHUFFLE" class="button" title="Shuffle">开始游戏</a></li>
+    <li><a href="#" id="SHOW_PREVIEW" class="button" title="Preview" style="display:none">视图</a></li>
+    <li><a href="#" id="SHOW_HELP" class="button help" title="Help">帮助</a></li>
+    <li>
+        <div class="styled-select" style="display:none">
+            <select id="set-parts" selected-index="8">
+                <option value="10" selected>&plusmn; 10 Pieces</option>
+                <option value="20">&plusmn; 20 Pieces</option>
+                <option value="30">&plusmn; 30 Pieces</option>
+                <option value="40">&plusmn; 40 Pieces</option>
+                <option value="50">&plusmn; 50 Pieces</option>
+                <option value="60">&plusmn; 60 Pieces</option>
+                <option value="70">&plusmn; 70 Pieces</option>
+                <option value="80">&plusmn; 80 Pieces</option>
+                <option value="90">&plusmn; 90 Pieces</option>
+                <option value="100">&plusmn; 100 Pieces</option>
+            </select>
+        </div>
+    </li>
+
+</ul>
+
+<!-- OVERLAY -->
+<div class="hide" id="overlay"></div>
+
+<!-- CONGRATULATION -->
+<div id="congrat" class="hide">
+    <a href="#" class="close" title="cerrar" onclick="jigsaw.UI.close_lightbox();jsaw.shuffle();">X</a>
+    <h2>&nbsp;&nbsp;&nbsp;恭喜您完成了游戏！</h2>
+    游戏用时：<span id="time"></span>
+    <div id="rankDiv" style="padding-top: 8px; padding-bottom: 8px;">计算排名中...</div>
+    <input type="text" id="userName" style="width: 90px; height: 24px; font-size: 14px; line-height: 24px;" placeholder="输入您的大名" /> <a href="#" id="SubA" class="button" title="SubA" onclick="insertRank();">确定</a>
+    <div id="topDiv"></div>
+    <input type="hidden" id="typeFun" value="0" />
+    <input type="hidden" id="secTime" value="" />
+</div>
+
+<!-- HELP -->
+<div id="help" class="hide">
+    <a href="#" class="close" title="cerrar" onclick="jigsaw.UI.close_lightbox();">X</a>
+    <h2>&nbsp;&nbsp;&nbsp;玩法介绍</h2>
+    <ul style="padding-left: 20px;">
+        <li>游戏随机打乱图片的位置，需要玩家拖动图片来进行拼图游戏！</li>
+        <li>点击每一个图片可以旋转其角度</li>
+        <li>如果图片与图片直接拼接正确则可以自然形成一个整体，并可以整体进行拖动。</li>
+    </ul>
+    
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;GOOD LUCK！</h3>
+</div>
+
+<script type="text/javascript">
+    function getRank() {
+        $.post('ajax.aspx?type=1&time=' + $("#secTime").val() + '&t=' + Math.random(), {
+        }, function (data) {
+            $("#rankDiv").html(data);
+        })
+    }
+
+    function insertRank() {
+        if ($("#typeFun").val() == "1") {
+            $.post('ajax.aspx?type=3&name=' + encodeURIComponent($("#userName").val()) + '&time=' + $("#secTime").val() + '&t=' + Math.random(), {
+            }, function (data) {
+                $("#typeFun").val("0");
+                getTop();
+            })
+        }
+    }
+
+    function getTop() {
+        $.post('ajax.aspx?type=2&t=' + Math.random(), {
+        }, function (data) {
+            $("#topDiv").html(data);
+        })
+    }
+</script>
+<script src="js/event-emiter.min.js"></script>
+<script src="js/canvas-event.min.js"></script>
+<script src="js/canvas-puzzle.min.js"></script>
+<script>
+jsaw = new jigsaw.Jigsaw();
+// change image url here
+jsaw.set_image("images/scottwills_meercats.jpg");
+</script>
+</body>
+</html>
