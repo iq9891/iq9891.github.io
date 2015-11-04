@@ -1,0 +1,9 @@
+﻿.oh {overflow:hidden;}
+
+.carousel {width:550px;margin:0 auto;}
+.carouselL,.carouselR {width:100px;height:100px;border:1px solid #000;font:30px/100px "宋体";text-align:center;}
+.off {border:1px solid #ccc;background:#ccc;color:#999;}
+.carouselM {width:346px;height:100px;border:1px solid #000;border-left:none;border-right:none;}
+.listBox {margin:4px 0;height:92px;}
+.list {height:92px;}
+.list li {width:100px;height:90px;border:1px solid #f00;float:left;margin-left:10px;}

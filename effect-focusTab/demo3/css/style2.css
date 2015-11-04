@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* CSS Document */
+/**
+ * 全局样式
+ */
+* {margin:0px; padding:0px; border:0px; -webkit-tap-highlight-color: rgba(255, 255, 255, 0);}
+img {vertical-align:top;}
+body{padding:0px; margin:0px; font-family: "微软雅黑"; font-size: 12px;}
+li {list-style:none;}
+a{color:#000; text-decoration:none;}
+
+/** 
+ * 首页
+ */
+#demo{
+	width:100%;
+	background:url(../images/bg.jpg);
+	background-size:100%;
+	position:relative;
+	}
+.logo{
+	margin:0 auto;
+	}
+	
+	
+/*轮播图*/
+.lunboDb,.db { display:block;}
+.lunboCW { line-height:0;font-size:0; overflow:hidden;color:rgba(255,255,255,0);}
+.lunboOh { overflow:hidden;}
+.no18Mid {margin:0 auto;}
+.no18w100,.w100 {width:100%;}
+.no18h100 {height:100%;}
+.no18tac,.tac {text-align:center;}
+.no18fw,.fw {font-weight:bold;}
+.cf00 {color:#f00;}
+.c3c2619 {color:#3c2619;}
+.c9b6a34 {color:#9b6a34;}
+.cc1884a {color:#c1884a;}
+.c764d25 {color:#764d25;}
+.cfff {color:#fff;}
+.a {position:absolute;}
+.f {position:fixed;}
+.r {position:relative;}
+.fl {float:left;}
+.m_inpNoBg {-webkit-appearance:none;background:none;border-radius:0;border:none;outline:none;}
+
+.no18BotL,.no18BotR {width:50%; float:left;}
+.no18Bot {width:100%;background:url(../images/no18Font.png) no-repeat;background-size:100% 100%;}
+.no18BotB {width:100%;background:url(../images/no18Font_01.png) no-repeat;background-size:100% 100%;}
+.n18Img {background:url(../images/n18Img.jpg) no-repeat;background-size:100% 100%;}
+.n18Imgb {background:url(../images/n18Img_01.jpg) no-repeat;background-size:100% 100%;}
+.n18S { background: -webkit-gradient(linear,left top,right top,color-stop(0, #3c2619),color-stop(0.4, #3c2619),color-stop(0.5, white),color-stop(0.6, #3c2619),color-stop(1, #3c2619));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: slidetounlock 5s linear infinite;}
+
+@-webkit-keyframes slidetounlock {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 720px 0;
+  }
+}
+
+.cdBox {border:1px solid #77422f;color:#f0ad92;}
+.cdInfo {font-size:16px;font-weight:bold;}
+.bBox,.sBoxR {border:1px solid #9b6a34;border-radius:8px;}
+.bBox1 {background:url(../images/bBox1.png) no-repeat;background-size:auto 100%;}
+.bBox2 {background:url(../images/bBox2.png) no-repeat;background-size:auto 100%;}
+.bInp,.sBoxR input {font-size:18px;}
+.bBtn {right:0;bottom:0;}
+.sBoxL {text-align:right;font-size:20px;}
+.sBoxR2Btn {background:url(../images/sImg.png) no-repeat;background-size:100% 200%;font-size:12px;}
+
+.sBoxR2Btn2 {background:url(../images/sImg1.png) no-repeat;background-size:100% 200%;font-size:12px;}
+/*loading*/
+.load {width:100%;position: absolute;top:30%;left:0;}
+.loadImg{width:20%;margin:0 0 0 40%;text-align:center;}
+
+.a { position:absolute;}
+.r { position:relative;}
+.oh { overflow:hidden;}
+
+.n18H2 {font-weight:normal; text-align:center;font-size:14px;}
+.n18ImgbConInfo { text-indent:2em;}
+
+.iScrollVerticalScrollbar {
+	position: absolute;
+	z-index: 9999;
+	width: 16px;
+	bottom: 2px;
+	top: 2px;
+	right: 2px;
+	overflow: hidden;
+	background: rgba(98,50,32,0.3);
+	border-radius: 8px;
+}
+
+.iScrollVerticalScrollbar.iScrollBothScrollbars {
+	bottom: 18px;
+}
+
+.iScrollIndicator {
+	position: absolute;
+	background: rgba(49,24,13,0.7);
+	border-radius: 8px;
+}
+
+.iScrollVerticalScrollbar .iScrollIndicator {
+	width: 100%;
+}
