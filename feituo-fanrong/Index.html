@@ -1,0 +1,146 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="format-detection" content="telephone=no" />
+<title>泛融网</title>
+<link href="css/style.css?a=6" type="text/css" rel="stylesheet" />
+<script src="js/zepto.min.js"></script>
+<script src="js/zepto.view.min.js"></script>
+<script src="js/index.js?a=6"></script>
+</head>
+<body>
+<div class="dn"><audio id="audio" src="bg.mp3" autoplay loop></audio></div>
+<div class="mid a w640 h1040 load">
+	<div class="a loadBox">
+		<div class="a lbBg"></div>
+		<div id="rount" class="a rount"></div>
+		<div class="a lbBg2"></div>
+		<div id="rount2" class="a rount2"></div>
+		<div id="dian" class="a dian"></div>
+	</div>
+	<div id="loadNum" class="w640 tac c4c4948 a loadNum">0</div>
+	<div class="w640 tac c4c4948 a loadFont">loading...</div>
+</div>
+<div class="r mid w640 h1040 oh">
+	<div class="allWrap a w100">
+		<section class="r w100 h1040 bge3ebef iBg iBg1 oh">
+			<div class="cw a aImg1">巨牛</div>
+		</section>
+		<section class="r w100 h1040 bge3ebef iBg iBg2 oh">
+			<div class="cw a bArrow">箭头</div>
+			<div class="cw a bFont">14%</div>
+			<div class="cw a bMoney">钱</div>
+			<div class="cw a bFont2 o0">14</div>
+		</section>
+		<section class="r w100 h1040 bge3ebef iBg iBg3 oh">
+			<div class="cw a cImg1 o0">抢单</div>
+			<div class="cw a cImg2 o0">星1</div>
+			<div class="cw a cImg3 o0">星2</div>
+			<div class="cw a cImg4 o0">星3</div>
+		</section>
+		<section class="r w100 h1040 bge3ebef iBg iBg4 oh">
+			<div class="cw a dImg1">人</div>
+			<div class="cw a dImg2">手</div>
+		</section>
+		<section class="r w100 h1040 bge3ebef iBg iBg5 oh">
+			<div class="w640 cw a eImg2">以稀有金属为标的物</div>
+			<div class="w640 cw a eImg1">以稀有金属为标的物</div>
+			<div class="w640 cw a eImg22">以稀有金属为标的物</div>
+			<div class="w640 cw a eImg11">以稀有金属为标的物</div>
+		</section>
+		<section class="r w100 h1040 bge3ebef iBg iBg6 oh"></section>
+		<section class="r w100 h1040 bge3ebef iBg iBg7 oh">
+			<div class="cw a gImg1">手指</div>
+			<div class="cw a gImg3">万事俱备就等你来</div>
+			<div class="cw a gImg2">万事俱备就等你来</div>
+			<a href="http://www.efanrong.com" class="a cw gLink">www.efanrong.com</a>
+		</section>
+	</div>
+</div>
+<!-- <div class="f cs1" style="width:100px;height:100px;background:red;top:0;left:0;z-index:9999;">上</div> -->
+<!-- <div class="f cs2" style="width:100px;height:100px;background:red;top:120px;left:0;z-index:9999;">下</div> -->
+<div class="f goTop dn">
+	<img src="images/yTop.png" class="db w100 yTop1" />
+	<img src="images/yTop2.png" class="db w100 yTop2 dn" />
+</div>
+</body>
+</html>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+    var wxtitle = "巨牛的互联网金融投资平台盛大开业";
+    var wxdesc = "年化收益14%，实物抵押，无封闭期，万事俱备，就等你来";
+    var wxlink = "http://mobile.xfhl.cn/fanrong/fanrong/Index.html?src=" + Math.random();
+    var wximgUrl = "http://mobile.xfhl.cn/fanrong/fanrong/images/share.jpg?a=" + Math.random();
+    window.addEventListener('load', onloadFun, false);
+    function onloadFun() {
+        $.ajax({
+            async: false,
+            url: 'http://mobile.xfhl.cn/fanrong/API/GetWXJsApiByAjax.aspx?urlStr=' + encodeURIComponent(window.location.href),
+            //url: 'http://dos.leemagnum.com/API/GetWXJsApiByAjax.aspx?urlStr=' + encodeURIComponent(window.location.href),
+            type: "GET",
+            dataType: 'jsonp',
+            jsonp: 'callback',
+            timeout: 5000,
+            beforeSend: function () {
+            },
+            success: function (json) {
+                wx.config({
+                    debug: false,
+                    appId: json["appId"],
+                    timestamp: json["timestamp"],
+                    nonceStr: json["nonceStr"],
+                    signature: json["signature"],
+                    jsApiList: [
+                            'checkJsApi',
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage'
+                          ]
+                });
+
+                wx.ready(function () {
+                    document.getElementById('audio').play();
+                    wx.onMenuShareAppMessage({
+                        title: wxtitle,
+                        desc: wxdesc,
+                        link: wxlink,
+                        imgUrl: wximgUrl,
+                        trigger: function (res) {
+
+                        },
+                        success: function (res) {
+
+                        },
+                        cancel: function (res) {
+                        },
+                        fail: function (res) {
+                        }
+                    });
+
+                    wx.onMenuShareTimeline({
+                        title: wxdesc,
+                        link: wxlink,
+                        desc: wxtitle,
+                        imgUrl: wximgUrl,
+                        trigger: function (res) {
+
+                        },
+                        success: function (res) {
+                        },
+                        cancel: function (res) {
+                        },
+                        fail: function (res) {
+                        }
+                    });
+                });
+            },
+            complete: function (XMLHttpRequest, textStatus) {
+
+            },
+            error: function (xhr) {
+            }
+        });
+    }    
+</script>
