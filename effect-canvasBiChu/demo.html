@@ -1,0 +1,236 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="format-detection" content="telephone=no">
+<!--禁用手机号码链接(for iPhone)-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui" />
+<!--自适应设备宽度-->
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<!--控制全屏时顶部状态栏的外，默认白色-->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+<link rel="apple-touch-icon" href="images/icon.png" />
+
+<!--是否允许全屏显，只有在桌面启动时可用-->
+<title>毛笔字测试</title>
+<link href="style/reset.css" rel="stylesheet" type="text/css" />
+<link href="style/base.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+#clear { display: block; background: #999; width: 120px; height: 36px; line-height: 36px; text-align: center; color: #fff; margin: 20px auto; border-radius: 5px;}
+</style>
+</head>
+
+<body>
+	
+	<canvas id="canvas" width="600" height="600" style="border:1px solid #f00;margin:10px auto;display:block;background:#fff"></canvas>
+
+	<a href="javascript:void(0)" id="clear">清空</a>
+
+	</div>
+
+	<script type="text/javascript" src="http://libs.useso.com/js/jquery/2.0.3/jquery.min.js"></script>
+	<script type="text/javascript">
+	(function() {
+	    function h(a) {
+	        return document.getElementById(a);
+	    }
+	    function q() {
+	        function a() {
+	            "number" == typeof window.orientation && 0 !== window.orientation || "function" != typeof q || location.reload();
+	        }
+	        q = null;
+            var b = document.body.clientWidth, c = b / 640;
+            document.body.style.fontSize = 32 * c + "px";
+            document.body.style.width = b + "px";
+            var d = h("canvas");
+            d.width = 600 * c;
+            d.height = 600 * c;
+            var f = new u(d);
+            f.b = b;
+            document.ontouchmove = function(a) {
+                a.preventDefault();
+            };
+	    }
+	    function u(a) {
+	        if (a.nodeType) this.canvas = a; else if ("string" == typeof a) this.canvas = document.getElementById(a); else return;
+	        this.D();
+	    }
+	    (u.prototype = {
+	        lineWidth: 1,
+	        color: "rgba(0,0,0, .6)",
+	        c: 8,
+	        b: 320,
+	        k: 0,
+	        D: function() {
+	            var a = this;
+	            if (this.canvas.getContext) {
+	                this.a = this.canvas.getContext("2d");
+	                this.a.strokeStyle = this.color;
+	                this.a.fillStyle = this.color;
+
+	                var b = function(c) {
+	                    var d, e;
+	                    if ("touchstart" == c.type) {
+	                        if (2 <= c.touches.length) return;
+	                        d = c.touches[0].pageX;
+	                        e = c.touches[0].pageY;
+	                    } else d = c.pageX, e = c.pageY;
+	                    a.F(d, e, c.type);
+	                    c.preventDefault();
+	                };
+	                this.h(this.canvas, "touchstart", b);
+	                var c = h("clear");
+		            c.addEventListener("touchend", function(){
+		            	a.a.clearRect(0,0,1000,1000);
+		            }, false);
+	            }
+	        },
+	        F: function(a, b, c) {
+	            var d = this;
+	            this.i = this.canvas.getBoundingClientRect();
+	            this.i = {
+	                left: this.i.left + (window.scrollX || window.pageXOffset),
+	                top: this.i.top + (window.scrollY || window.pageYOffset)
+	            };
+	            window.getSelection() ? window.getSelection().removeAllRanges() : document.selection.empty();
+	            this.a.moveTo(a - this.i.left, b - this.i.top);
+	            this.e = null;
+	            this.s = 0;
+	            this.d = [];
+	            this.lineWidth = this.c / 2 * (this.b / 320);
+	            this.g && (this.f(document, "mousemove", this.g), this.f(document, "touchmove", this.g), 
+	            this.f(document, "mouseup", this.j), this.f(document, "touchend", this.j));
+	            this.g = function(a) {
+	                var b, c;
+	                if ("touchmove" == a.type) {
+	                    if (2 <= a.touches.length) return;
+	                    b = a.touches[0].pageX;
+	                    c = a.touches[0].pageY;
+	                } else b = a.pageX, c = a.pageY;
+	                d.t(b, c);
+	                a.preventDefault();
+	            };
+	            this.j = function() {
+	                d.G();
+	            };
+	            "touchstart" == c ? (this.h(document, "touchmove", this.g), this.h(document, "touchend", this.j)) : (this.h(document, "mousemove", this.g), 
+	            this.h(document, "mouseup", this.j));
+	            this.w();
+	            this.t(a, b);
+	        },
+	        t: function(a, b) {
+	            var c;
+	            c = 0;
+	            a -= this.i.left;
+	            b -= this.i.top;
+	            if (this.d.length && (c = this.d[this.d.length - 1], c = Math.sqrt((c.x - a) * (c.x - a) + (c.y - b) * (c.y - b)), 
+	            0 == c)) return;
+	            this.k++;
+	            this.d.push({
+	                x: a,
+	                y: b,
+	                r: c
+	            });
+	            3 <= this.d.length && (c = this.d.shift(), this.q(c));
+	        },
+	        q: function(a, b) {
+	            var c = a.x, d = a.y, e = a.r, f = 4;
+	            if (!this.e || 0 !== e) {
+	                var g = this.d.length ? this.d[0] : null;
+	                if (e) {
+						//改变半径
+//	                    this.a.moveTo(this.e.x, this.e.y);
+//	                    if (!this.s && (this.s = 1, g && e > g.r * f)) for (e /= 4, f = 1; 4 >= f; f++) this.u(c + f / 4 * (this.e.x - c), d + f / 4 * (this.e.y - d));
+//	                    b || (b = e < .003125 * this.b ? this.b / 320 * this.c * 1.625 : e < .00625 * this.b ? this.b / 320 * this.c * 1.375 : e < .009375 * this.b ? this.b / 320 * this.c * 1.25 : e < .015625 * this.b ? this.b / 320 * this.c * 1.125 : e < .021875 * this.b ? this.b / 320 * this.c : e < .028125 * this.b ? this.b / 320 * this.c * .875 : e < .034375 * this.b ? this.b / 320 * this.c * .75 : e < .046875 * this.b ? this.b / 320 * this.c * .625 : e < .0625 * this.b ? this.b / 320 * this.c * .5 : this.b / 320 * this.c * .375);
+//	                    this.n = b;
+//	                    Math.abs(this.lineWidth - this.n) > this.b / 320 * this.c * .025 && (this.lineWidth -= (this.lineWidth - this.n) / 8, 
+//	                    this.a.lineWidth = this.lineWidth);
+	                }
+	                this.e = a;
+	                this.u(c, d);
+	            }
+	        },
+	        G: function() {
+	            this.f(document, "mousemove", this.g);
+	            this.f(document, "touchmove", this.g);
+	            this.f(document, "mouseup", this.j);
+	            this.f(document, "touchend", this.j);
+	            --this.a.lineWidth;
+	            for (var a; this.d.length; ) a = this.d.shift(), this.q(a, this.b / 320 * this.c / 4);
+	        },
+	        A: function() {
+	            this.e = null;
+	            this.k = 0;
+	            this.a.clearRect(0, 0, this.canvas.width, this.canvas.height);
+	            this.a.beginPath();
+	        },
+	        u: function(a, b) {
+	            var c, d, e;
+	            this.a.fillStyle = this.color;
+	            this.a.strokeStyle = this.color;
+	            this.a.lineTo(this.e.x, this.e.y);
+	            this.a.stroke();
+	            this.a.beginPath();
+	            this.a.strokeStyle = "rgba(0, 0, 0, 0)";
+				console.log(this.l+"+"+this.m);
+	            if (this.l || this.m) {
+					c = this.l - a;
+					d = this.m - b;
+					e = Math.sqrt((this.l - a) * (this.l - a) + (this.m - b) * (this.m - b));
+					
+					if (Math.abs(e) > this.lineWidth / 3) {
+					//填补移动之间的点
+	                e = Math.floor(Math.abs(e) / (this.lineWidth / 3));
+					console.log(e);
+	//	                for (var f = 1; f <= e; f++) Math.abs(this.lineWidth - this.n) > this.b / 320 * this.c * .025 && (this.lineWidth -= Math.round(this.lineWidth - this.n) / 8, 
+	//	                this.a.lineWidth = this.lineWidth), this.a.arc(this.l - f / e * c, this.m - f / e * d, this.lineWidth, 0, 2 * Math.PI), 
+	//	                this.a.fill(), this.a.stroke(), this.a.beginPath();
+						for (var f = 1; f <= e; f++){ 
+							if(Math.abs(this.lineWidth - this.n) > this.b / 320 * this.c * .025){
+								this.lineWidth -= Math.round(this.lineWidth - this.n) / 8; 
+								this.a.lineWidth = this.lineWidth;
+							}
+							this.a.arc(this.l - f / e * c, this.m - f / e * d,					this.lineWidth, 0, 2 * Math.PI); 
+							this.a.fill();
+							this.a.stroke();
+							this.a.beginPath();
+						}
+					}
+	            }
+	            this.a.arc(a, b, this.lineWidth, 0, 2 * Math.PI);
+	            this.a.fill();
+	            this.a.stroke();
+	            this.a.beginPath();
+	            this.l = a;
+	            this.m = b;
+	        },
+	        w: function() {
+	            this.m = this.l = 0;
+	        },
+	        h: function(a, b, c) {
+	            a.addEventListener(b, c, !1);
+	        },
+	        f: function(a, b, c) {
+	            a.removeEventListener(b, c, !1);
+	        },
+	        B: function(a, b) {
+	            return w(a, b, this, 590);
+	        },
+	        C: function(a, b) {
+	            return w(a, b, this, 80);
+	        }
+	    }, q());
+	})();
+	</script>
+
+</body>
+
+
+
+</html>
