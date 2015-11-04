@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
+	<title>擦擦看</title>
+	<script type="text/javascript" src="lufylegend-1.9.3.simple.min.js"></script>
+	<script type="text/javascript" src="lufylegend.LoadingSample4-0.1.0.min.js"></script>
+</head>
+<body style="margin:0px 0px 0px 0px; background-color: #ffffff;">
+	<div id="legend"></div>
+	</body>
+</html>
+<script>
+    var imgData = [
+	    { name: "A2", path: "A2.jpg" },
+        { name: "ccpl_2_5", path: "ccpl_2_5.png" },
+		{ name: "B2", path: "B2.jpg" }
+    ];
+    var imglist;
+    var loadingLayer, backSprite, middleLayer;
+    var paintbrushSprite;
+    var outBitmapData;
+    var paintbrushBitmapData;
+    var paintbrush;
+    var paintbrushSize = 50;
+    var pointList = [];
+    var lx = 0, ly = 0;
+    var isStart = false;
+
+    init(20, "legend", 320, 416, main);
+
+    function main() {
+        if (LGlobal.canTouch) {
+            LGlobal.stageScale = LStageScaleMode.NO_BORDER;
+        } else {
+            LGlobal.stageScale = LStageScaleMode.SHOW_ALL;
+        }
+        LSystem.screen(LStage.FULL_SCREEN);
+        loadingLayer = new LoadingSample4();
+        addChild(loadingLayer);
+        LLoadManage.load(imgData,
+		function (progress) {
+		    loadingLayer.setProgress(progress);
+		}, gameInit);
+    }
+
+    function gameInit(result) {
+        imglist = result;
+        removeChild(loadingLayer);
+        loadingLayer = null;
+
+        
+
+        var bitmapData;
+        var bitmap;
+        var shape;
+
+        var backBitmapData = new LBitmapData(imglist["A2"]);
+
+        paintbrushSprite = new LSprite();
+
+        //每次填充像素块儿做成，一个类似刷子的东西
+        shape = new LShape();
+        shape.graphics.drawRect(0, "#CCCCCC", [0, 0, paintbrushSize, paintbrushSize], true, "#CCCCCC");
+        bitmapData = new LBitmapData(null, 0, 0, paintbrushSize, paintbrushSize, LBitmapData.DATA_CANVAS);
+        bitmapData.draw(shape);
+        paintbrush = bitmapData.getPixels(new LRectangle(0, 0, paintbrushSize, paintbrushSize));
+
+        //这个用来做颜色合成
+        paintbrushBitmapData = new LBitmapData(null, 0, 0, backBitmapData.width, backBitmapData.height, LBitmapData.DATA_CANVAS);
+        //这个用来拷贝像素
+        outBitmapData = new LBitmapData(null, 0, 0, backBitmapData.width, backBitmapData.height, LBitmapData.DATA_CANVAS);
+
+        var paintbrushBitmap = new LBitmap(paintbrushBitmapData);
+        paintbrushSprite.addChild(paintbrushBitmap);
+        //我用了同一张图片，为了看出效果，我显示了不同的区域，以达到错位
+        bitmapData = new LBitmapData(imglist["B2"]);
+        bitmap = new LBitmap(bitmapData);
+        paintbrushSprite.addChild(bitmap);
+        //＊这个是关键，因为是LBlendMode.SOURCE_IN，所以只能显示和paintbrushBitmapData重叠的部分，最初paintbrushBitmapData中是null，所以没有图
+        //因为LBlendMode的效果是叠加的，所以如果还要显示其他图片的话，绝对不可以直接显示这个bitmap，否则整个画面都将变成LBlendMode.SOURCE_IN。所以要将它拷贝到另一个outBitmapData中
+        bitmap.blendMode = LBlendMode.SOURCE_IN;
+
+
+        backSprite = new LSprite();
+        addChild(backSprite);
+        //底图
+        var backBitmap = new LBitmap(backBitmapData);
+        backBitmap.y = 100;
+        backSprite.addChild(backBitmap);
+        //
+        var outBitmap = new LBitmap(outBitmapData);
+        outBitmap.y = 100;
+        backSprite.addChild(outBitmap);
+        //刮图
+        backSprite.addEventListener(LMouseEvent.MOUSE_DOWN, ondown);
+        backSprite.addEventListener(LMouseEvent.MOUSE_MOVE, onmove);
+        backSprite.addEventListener(LMouseEvent.MOUSE_UP, onup);
+
+        //实时拷贝像素
+        backSprite.addEventListener(LEvent.ENTER_FRAME, onframe);
+        //显示FPS
+        //addChild(new FPS());
+
+        middleLayer = new LSprite();
+        addChild(middleLayer);
+        middleLayer.addChild(new LBitmap(new LBitmapData(imglist["ccpl_2_5"])));
+    }
+
+    function ondown(event) {
+        isStart = true;
+        paintbrushBitmapData.putPixels(new LRectangle(event.selfX - paintbrushSize * 0.5, event.selfY-100 - paintbrushSize * 0.5, paintbrushSize, paintbrushSize), paintbrush);
+    }
+
+    function onmove(event) {
+        if (isStart) {
+            if (pointList.indexOf(Math.round(event.offsetX) + "_" + Math.round(event.offsetY)) < 0) {
+                pointList.push(Math.round(event.offsetX) + "_" + Math.round(event.offsetY));
+            }
+
+            //console.log(pointList.length);
+            //之前的bitmap和paintbrushBitmapData重叠的部分就会有效
+            if (lx == 0 && ly == 0) {
+                lx = event.offsetX;
+                ly = event.offsetY;
+                paintbrushBitmapData.putPixels(new LRectangle(event.selfX - paintbrushSize * 0.5, event.selfY - 100 - paintbrushSize * 0.5, paintbrushSize, paintbrushSize), paintbrush);
+            }
+            else {
+                //补充画笔
+                paintbrushBitmapData.putPixels(new LRectangle(lx + (event.selfX - lx) / 5 - paintbrushSize * 0.5, ly + (event.selfY - ly) / 5 - 100 - paintbrushSize * 0.5, paintbrushSize, paintbrushSize), paintbrush);
+                paintbrushBitmapData.putPixels(new LRectangle(lx + (event.selfX - lx) * 2 / 5 - paintbrushSize * 0.5, ly + (event.selfY - ly) * 2 / 5 - 100 - paintbrushSize * 0.5, paintbrushSize, paintbrushSize), paintbrush);
+                paintbrushBitmapData.putPixels(new LRectangle(lx + (event.selfX - lx) * 3 / 5 - paintbrushSize * 0.5, ly + (event.selfY - ly) * 3 / 5 - 100 - paintbrushSize * 0.5, paintbrushSize, paintbrushSize), paintbrush);
+                paintbrushBitmapData.putPixels(new LRectangle(lx + (event.selfX - lx) * 4 / 5 - paintbrushSize * 0.5, ly + (event.selfY - ly) * 4 / 5 - 100 - paintbrushSize * 0.5, paintbrushSize, paintbrushSize), paintbrush);
+                paintbrushBitmapData.putPixels(new LRectangle(event.selfX - paintbrushSize * 0.5, event.selfY - 100 - paintbrushSize * 0.5, paintbrushSize, paintbrushSize), paintbrush);
+                lx = event.offsetX;
+                ly = event.offsetY;
+            }
+        }
+    }
+    function onup(event) {
+        //alert(pointList.length);
+        isStart = false;
+        lx = 0;
+        ly = 0;
+        //刮到一定坐标数,可调整
+        if (pointList.length >= 150) {
+            //LTweenLite.to(backSprite, 1, { alpha: 0, ease: LEasing.Strong.easeInOut,  });
+            //backSprite.removeAllChild();
+
+            var newBitmap = new LBitmap(new LBitmapData(imglist["B2"]));
+            newBitmap.alpha = 0;
+            newBitmap.y = 100;
+            backSprite.addChild(newBitmap);
+            LTweenLite.to(newBitmap, 1, { alpha: 1, ease: LEasing.Strong.easeInOut });
+        }
+    }
+    function onframe(event) {
+        //像素拷贝
+        outBitmapData.draw(paintbrushSprite);
+    }
+
+</script>
