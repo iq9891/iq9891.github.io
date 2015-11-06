@@ -1,0 +1,125 @@
+@charset "utf-8";
+/* 公共 */
+html{font-size: 62.5%;}
+article,aside,audio,bdi,canvas,command,datalist,details,figcaption,figure,footer,header,hgroup,keygen,mark,meter,nav,progress,rp,rt,ruby,section,source,summary,time,track,video {display:block}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,figure {padding:0;margin:0;}
+img{vertical-align: top;border:0;}
+address,caption,em,th {font-style:normal;font-weight:normal;}
+li {list-style:none;}
+section,div,img,a{
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  -webkit-tap-highlight-color:transparent;
+}
+body{padding:0px;margin:0px; font-family: "微软雅黑"; font-size:1.2rem;color:#001f3b;}
+a{text-decoration:none;}
+.clear{zoom:1;}
+.clear:after{content:"";display:block;clear:both;}
+.inpNoBg {-webkit-appearance:none;background:none;}
+.r {position: relative;}
+.a {position: absolute;}
+.f {position: fixed;}
+.fl {float:left;}
+.fr {float:right;}
+.tac {text-align:center;}
+.tar {text-align:right;}
+.db {display: block;}
+.dn {display: none;}
+.dib {display: inline-block;}
+.oh {overflow:hidden;}
+.w100 {width:100%;}
+.h100 {height:100%;}
+.mid {margin: 0 auto;}
+.fs12 {font-size:1.2rem;}
+.fs16 {font-size:1.6rem;}
+.fs18 {font-size:1.8rem;}
+.fs24 {font-size:2.4rem;}
+.fwn {font-weight:normal;}
+.dt {display:table;}
+.dtc {display: table-cell;}
+.vam {vertical-align:middle;}
+.ti1 {text-indent:1em;}
+.reSetInp {-webkit-appearance:none;background:none;border-radius:0;border:none;}
+.noZi { line-height:0;font-size:0; overflow:hidden;color:rgba(255,255,255,0);}
+
+
+html, body,.wrapper {width:100%;height: 100%;}
+
+@media (min-width: 1280px) {
+	.wrapper {width:480px;height:auto;margin: 0 auto;position:static;}
+	.m_wrapper {width:480px;margin: 0 auto;}
+}
+
+/*公共*/
+.rotate {width:100%;height:100%;top:0;left:0;z-index:999999999999;}
+.cfff {color:#fff;}
+.cf00 {color:#c00;}
+.bgfff {background:#fff;}
+/*.c00 {background:rgba(255,0,0,0.3);}*/
+.iMask {top:0;left:0;z-index:10;background:rgba(0,0,0,0.6);}
+.w875 {width:87.5%;}
+
+/*自定义滚动条*/
+.scrollBox {height:73%;margin:5% 0 0;}
+.scroll {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+.iScrollVerticalScrollbar {
+	position: absolute;
+	z-index: 9999;
+	width: 7px;
+	bottom: 2px;
+	top: 2px;
+	right: 4%;
+	overflow: hidden;
+	background:url(../images/iScrollLoneScrollbarBg.png) no-repeat center top;
+	background-size:contain;
+}
+.iScrollIndicator {
+	background: #80a3c3;
+}
+.iScrollVerticalScrollbar .iScrollIndicator {
+	width: 100%;
+}
+
+
+/*首页*/
+.iBg {background:url(../images/iBg.jpg) no-repeat;background-size:100%;}
+.iStart {width:60%;height:20%;-webkit-transform: rotate(8deg);transform: rotate(8deg);top:45%;left:-5%;}
+.iInfoBtn {width:60%;height:20%;-webkit-transform: rotate(-8deg);transform: rotate(-8deg);top:66%;left:-5%;}
+
+.iInfoTk {width:82%;height:75%;top:3%;left:50%;margin:0 0 0 -41%;z-index:11;background:#0058a8;border:4px solid #869fa3;-webkit-transform: scale(0);
+transform: scale(0);}
+.iInfoTkImg {width:28%;}
+.iInfoTkClose {right:0;top:0;width:19%;height:13%;background:url(../images/iImg1.png) no-repeat;background-size:contain;}
+.iInfo {padding:0 0 0 4%;width:85%;}
+
+/*填写信息*/
+.infoBg {background:#005bac url(../images/infoBg.jpg) no-repeat;background-size:100%;}
+.infoCon {height:54%;}
+.infoBox {padding:5% 0 0;height:9%;}
+.infoBoxL {width:34%;height:100%;padding:0 2% 0 0;}
+.infoInp {height:98%;width:99%;border:1px solid #0c8dcf;text-indent:1em;}
+.infoBoxR {width:64%;}
+.infoSel {width:47%;border:1px solid #0c8dcf;background:#fff url(../images/iImg3.png) no-repeat right top;background-size:auto 100%;padding:0 12% 0 0;}
+.infoBtn {width:49%;height:13%;background:url(../images/infoBtn.png) no-repeat;background-size:contain;}
+.infoP {padding:5% 0 0;}
+.error {height:10%;}
+
+/*填写信息成功*/
+.infoSucCon {height:50%/*382*/;}
+.iSucBox {height:16%;background:url(../images/infoSucBtn.png) no-repeat;background-size:100%;margin-top:60%;}
+.iSucBox a {width:48%;}
+.shareTk {top:0;left:0;z-index:11;}
+
+/*游戏页面*/
+.legend {z-index:2;font-size:0px;}
+.mask {background:rgba(0,0,0,0.7);}
+.tk1 {background:url(../images/gTk3.png) no-repeat;background-size:100% 100%;}
