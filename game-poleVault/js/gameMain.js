@@ -1,7 +1,7 @@
 init(16.5,"legend",480,780,load);
 var imgData = [
 			{ type: "js", path: "./js/zepto.min.js" },
-			{ type: "js", path: "./js/Game.js" },
+			{ type: "js", path: "./js/game.js" },
 			{ name: "bg", path: "./images/background8.jpg" },
 			{ name: "help", path: "./images/guide_text.png" },
 			{ name: "scoreBg", path: "./images/scoreBg.png" },
