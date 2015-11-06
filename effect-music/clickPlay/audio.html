@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<link href="css/style.css" type="text/css" rel="stylesheet"/>
+<title>音频播放</title>
+
+</head>
+
+<body>
+<div class="m_porA load">
+    <div class="m_porA m_tac m_fs12 loadFont"><br /><br />加载中...</div>
+</div>
+
+<!-- 先加载图片以防图片切换加载的时候空白 start -->
+<img class="m_dn mediagl_playOn" src="images/zzWA2img72.gif" />
+<img class="m_dn mediagl_play" src="images/zzWA2img71.jpg" />
+<!-- 先加载图片以防图片切换加载的时候空白 end -->
+
+<div class="m_wrapper" style="opacity:0;">
+	<!-- 音频播放按钮 -->
+	<a href="javascript:;" class="m_porA mediagl_play"></a>
+		<!-- 音频 -->
+	<audio src="http://zjlt.sc.chinaz.com/Files/DownLoad/sound1/201204/1314.mp3"  id="vid1" controls style="position: absolute; z-index:100;  left: 0px; width:0px; display:none" name="vid1">
+		<source src="http://zjlt.sc.chinaz.com/Files/DownLoad/sound1/201204/1314.mp3"></source>
+	</audio>
+</div>
+</body>
+</html>

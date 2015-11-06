@@ -1,0 +1,54 @@
+﻿/*
+	不管再做什么项目前，一定要先将样式初始化，养成良好的样式设置习惯！
+    *,body{ margin:0px; padding:0px; border:0px; -webkit-tap-highlight-color:rgba(0,0,0,0);}
+    这里先将所有标签和body的内外边距以及边清0,同时加上移动专属的清除默认触摸光的颜色！
+*/
+/* 公共 */
+* {margin:0px; padding:0px; border:0px; 
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+html {-ms-touch-action: none;}
+img {vertical-align: top;}
+body{padding:0px;margin:0px; font-family: "微软雅黑"; font-size: 14px;-webkit-tap-highlight-color:rgba(0,0,0,0);background:#094373;}
+li {list-style:none;}
+a{color:#000; text-decoration:none;}
+.m_clear{zoom:1;}
+.m_clear:after{content:"";display:block;clear:both;}
+.m_porR {position: relative;}
+.m_porA {position: absolute;}
+.m_fl {float:left;}
+.m_fr {float:right;}
+.m_db {display: block;}
+.m_dn {display:none;}
+.m_oh {overflow:hidden;}
+.m_w100,.wrapper,.loadFont {width:100%;}
+.m_w50 {width:50%;}
+.m_mAuto {margin: 0 auto;}
+.m_tac {text-align:center;}
+.m_bgn {background:none;}
+.m_fs10,.zzWA1Info,.zzWA1Tit {font-size:10px;}
+.m_fs12 {font-size:12px;}
+.m_fs14 {font-size:14px;}
+.m_fs16 {font-size:16px;}
+.m_fs18 {font-size:18px;}
+.m_fs22 {font-size:22px;}
+.m_fw {font-weight:bold;}
+.m_inpNoBg {-webkit-appearance:none;background:none;}
+.changeWord { line-height:0;font-size:0; overflow:hidden;color:rgba(255,255,255,0);}
+
+/*最宽480*/
+@media (min-width: 1024px) {
+	
+	.m_wrapper {width:480px;margin: 0 auto;}
+
+}
+
+/*loading样式*/
+.load {top:30%;left:0;width:100%;}
+.loadImg {width:20%;margin:0 0 0 40%;}
+.loadFont {color:#fff;}
+
+/*图片*/
+.mediagl_play {background:url(../images/zzWA2img71.jpg) no-repeat;background-size:100% 100%;}
