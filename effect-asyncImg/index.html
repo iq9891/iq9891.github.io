@@ -1,0 +1,33 @@
+<!doctype html><!--HTML5 doctype-->
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="format-detection" content="telephone=no" />
+<title>seajs图片分步加载demo</title>
+<link href="src/css/style.css?data=7" type="text/css" rel="stylesheet" />
+<script src="lib/sea.js"></script>
+</head>
+<body>
+<div class="mid wrapper oh">
+	<div class="w100 scroll">
+		<section class="oh w100 scrollArea scrollArea1"></section>
+		<section class="oh w100 scrollArea scrollArea2"></section>
+		<section class="oh w100 scrollArea scrollArea3"></section>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+seajs.config({  
+  paths: {  'path': './src'}
+});
+seajs.use('path/js/zepto.min',function(){
+	seajs.use('path/js/zepto.view.min',function(){
+		seajs.use('path/js/touch.min',function(){
+			seajs.use('path/js/app');
+		});
+	});
+});
+</script>
+</html>
