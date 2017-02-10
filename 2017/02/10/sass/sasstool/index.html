@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Sass 的编译工具 | 奔跑中的前端</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在前文 Sass 是什么中，我们已经感受到了 Sass 强大魅力。今天，我们要一起学习一下 Sass 的编译工具。今天我们会通过利用当今非常流行的构建工具来实现我们编译 Sass 的理想。
+早在2013年我就开始玩 Sass 。那时候，只是单一的我只知道用工具 Koala 来编译 Sass ，还专门写了篇名为 《Sass 详解之编译工具 koala》 的博客。2013年，就连 Grunt 神似也刚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass 的编译工具">
+<meta property="og:url" content="https://iq9891.github.io/2017/02/10/sass/sasstool/index.html">
+<meta property="og:site_name" content="奔跑中的前端">
+<meta property="og:description" content="在前文 Sass 是什么中，我们已经感受到了 Sass 强大魅力。今天，我们要一起学习一下 Sass 的编译工具。今天我们会通过利用当今非常流行的构建工具来实现我们编译 Sass 的理想。
+早在2013年我就开始玩 Sass 。那时候，只是单一的我只知道用工具 Koala 来编译 Sass ，还专门写了篇名为 《Sass 详解之编译工具 koala》 的博客。2013年，就连 Grunt 神似也刚">
+<meta property="og:updated_time" content="2017-02-10T15:59:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sass 的编译工具">
+<meta name="twitter:description" content="在前文 Sass 是什么中，我们已经感受到了 Sass 强大魅力。今天，我们要一起学习一下 Sass 的编译工具。今天我们会通过利用当今非常流行的构建工具来实现我们编译 Sass 的理想。
+早在2013年我就开始玩 Sass 。那时候，只是单一的我只知道用工具 Koala 来编译 Sass ，还专门写了篇名为 《Sass 详解之编译工具 koala》 的博客。2013年，就连 Grunt 神似也刚">
+  
+  
+    <link rel="icon" href="//iq9891.github.io/favicon.ico">
+  
+  
+    
+  
+  <link href="//iq9891.github.io/css/style.css" rel="stylesheet" type="text/css">
+  
+
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8bf97788829b64b2e0ecdd008e5eb6b3";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- End 百度统计 -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://iq9891.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">奔跑中的前端</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-sass/sasstool" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/10/sass/sasstool/" class="article-date">
+  <time datetime="2017-02-10T02:03:38.000Z" itemprop="datePublished">2017-02-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Sass/">Sass</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Sass 的编译工具
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>在前文 <a href="./sasswhat">Sass 是什么</a>中，我们已经感受到了 Sass 强大魅力。今天，我们要一起学习一下 Sass 的编译工具。今天我们会通过利用当今非常流行的构建工具来实现我们编译 Sass 的理想。</p>
+<p>早在2013年我就开始玩 Sass 。那时候，只是单一的我只知道用工具 <a href="http://koala-app.com/index-zh.html" target="_blank" rel="external">Koala</a> 来编译 Sass ，还专门写了篇名为 <a href="http://blog.csdn.net/lee_magnum/article/details/11895611" target="_blank" rel="external">《Sass 详解之编译工具 koala》</a> 的博客。2013年，就连 Grunt 神似也刚刚起步，还是鲜为人知的项目，所以 Sass 在那时候还并未流行开来。但是直至今天，2017年了。我又恢复了我的博客生涯，给大家也带来了全新的 Sass 编译工具的介绍。下面我们就一起开始 Sass 编译工具之旅吧。</p>
+<p>为了让大家更好的亲身感受编译工具的强大，我在 <a href="https://github.com/iq9891/" target="_blank" rel="external">Github</a> 上准备了 <a href="https://github.com/iq9891/learn-sass.git" target="_blank" rel="external">Demo</a> ，让大家可以亲子感受到编译工具的强大。</p>
+<p><a href="https://github.com/iq9891/learn-sass.git" target="_blank" rel="external">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-sass.git" target="_blank" rel="external"><code>https://github.com/iq9891/learn-sass.git</code></a></p>
+<a id="more"></a>
+<h2 id="Grunt-编译-Sass"><a href="#Grunt-编译-Sass" class="headerlink" title="Grunt 编译 Sass"></a><a href="http://www.gruntjs.net/" target="_blank" rel="external">Grunt</a> 编译 Sass</h2><p>Grunt 作为最早被大家所熟知的构建工具。早些年，因为其强大的社区，占据了构建工具的半壁江山。下面则是我为大家呈现出的用于编译 Sass 的 Grunt 配置。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/grunt/Gruntfile.js" target="_blank" rel="external">Gruntfile.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">grunt</span>) </span>&#123;</div><div class="line">  <span class="comment">//加载任务器</span></div><div class="line">  grunt.loadNpmTasks(<span class="string">'grunt-contrib-sass'</span>);</div><div class="line">  <span class="comment">//总配置</span></div><div class="line">  grunt.initConfig(&#123;</div><div class="line">    <span class="attr">sass</span>: &#123;</div><div class="line">      <span class="attr">dist</span>: &#123;</div><div class="line">        <span class="attr">options</span>: &#123; <span class="comment">// 任务配置</span></div><div class="line">          sourcemap: <span class="string">'none'</span>, <span class="comment">//不生成map文件</span></div><div class="line">          style: <span class="string">'expanded'</span>, <span class="comment">//nested|compact|compressed|expanded</span></div><div class="line">          noCache: <span class="literal">true</span><span class="comment">//不生成缓存文件</span></div><div class="line">        &#125;,</div><div class="line">        <span class="attr">files</span>: &#123; <span class="comment">// 文件列表</span></div><div class="line">          <span class="string">'./css/main.css'</span>: <span class="string">'./sass/main.scss'</span>, <span class="comment">// '目标文件': '源文件'</span></div><div class="line">          <span class="string">'./css/app.css'</span>: <span class="string">'./sass/app.scss'</span></div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">  <span class="comment">//注册任务</span></div><div class="line">  grunt.registerTask(<span class="string">'default'</span>,[<span class="string">'sass'</span>]);</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>关于 Grunt 方面的 Sass 编译，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从GitHub克隆应用程序的启动器分支( grunt )</span></div><div class="line">git <span class="built_in">clone</span> -b grunt https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
+<p>如何安装并运行该项目，请阅读 <a href="https://github.com/iq9891/learn-sass/blob/grunt/README.md" target="_blank" rel="external"><strong>README.md</strong></a>。</p>
+<h2 id="Gulp-编译-Sass"><a href="#Gulp-编译-Sass" class="headerlink" title="Gulp 编译 Sass"></a><a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">Gulp</a> 编译 Sass</h2><p>与 Grunt 相比，Gulp 更为快速。因为 Gulp 利用 Node.js 流的威力，Gulp 可以快速构建项目并减少频繁的 IO 操作。通过最少的 API，掌握 Gulp 毫不费力，构建工作尽在掌握：如同一系列流管道。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/gulp/gulpfile.js" target="_blank" rel="external">Gulpfile.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"><span class="keyword">var</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'./sass/*.scss'</span>) <span class="comment">//引入 sass 文件夹下的所有 .scss 文件</span></div><div class="line">    .pipe(sass(&#123;</div><div class="line">      <span class="attr">outputStyle</span>: <span class="string">'compressed'</span></div><div class="line">     &#125;).on(<span class="string">'error'</span>, sass.logError))</div><div class="line">    .pipe(gulp.dest(<span class="string">'./css'</span>)); <span class="comment">//输出到 CSS 文件夹下</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>关于 Gulp 方面的 Sass 编译，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从GitHub克隆应用程序的启动器分支( gulp )</span></div><div class="line">git <span class="built_in">clone</span> -b gulp https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
+<p>如何安装并运行该项目，请阅读 <a href="https://github.com/iq9891/learn-sass/blob/gulp/README.md" target="_blank" rel="external"><strong>README.md</strong></a>。</p>
+<h2 id="Webpack1-编译-Sass"><a href="#Webpack1-编译-Sass" class="headerlink" title="Webpack1 编译 Sass"></a><a href="https://webpack.github.io/docs/" target="_blank" rel="external">Webpack1</a> 编译 Sass</h2><p>与 Gulp、 Grunt 相比， Webpack1 更佳迅速。因为 Webpack1 可以把文件生成在内存中，并不生产真正的文件，从而更少的 IO 操作，使其变得飞快。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/webpack1/webpack.config.js" target="_blank" rel="external">webpack.config.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</div><div class="line"><span class="comment">//生成css文件</span></div><div class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">'extract-text-webpack-plugin'</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: <span class="string">"./client/main.js"</span>, <span class="comment">//入口文件</span></div><div class="line">    output: &#123;</div><div class="line">      <span class="attr">filename</span>: <span class="string">"./js/bundle.js"</span> <span class="comment">//输出文件路径及名字</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">module</span>: &#123;</div><div class="line">        <span class="attr">loaders</span>: [</div><div class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.scss$/</span>, <span class="attr">loader</span>: ExtractTextPlugin.extract(<span class="string">"style-loader"</span>, <span class="string">"css!sass"</span>) &#125; <span class="comment">//加载样式模块并且</span></div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"./css/[name].[hash].css"</span>) <span class="comment">//生成css文件</span></div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>关于 Webpack1 方面的 Sass 编译，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从GitHub克隆应用程序的启动器分支( webpack1 )</span></div><div class="line">git <span class="built_in">clone</span> -b webpack1 https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
+<p>如何安装并运行该项目，请阅读 <a href="https://github.com/iq9891/learn-sass/blob/webpack1/README.md" target="_blank" rel="external"><strong>README.md</strong></a>。</p>
+<h2 id="Webpack2-编译-Sass"><a href="#Webpack2-编译-Sass" class="headerlink" title="Webpack2 编译 Sass"></a><a href="https://webpack.js.org/" target="_blank" rel="external">Webpack2</a> 编译 Sass</h2><p>Webpack2 与 Webpack1 相比，最为突出的特性就是 Tree shaking。这让 Webpack2 比 Webpack1 打包出来的文件更加小。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/webpack2/webpack.config.js" target="_blank" rel="external">webpack.config.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</div><div class="line"><span class="comment">//生成css文件</span></div><div class="line"><span class="keyword">const</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> extractSass = <span class="keyword">new</span> ExtractTextPlugin(&#123;</div><div class="line">    <span class="attr">filename</span>: <span class="string">"./css/[name].[contenthash].css"</span>,<span class="comment">//输出 CSS</span></div><div class="line">    disable: <span class="literal">false</span> <span class="comment">//是否隐藏</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: <span class="string">"./client/main.js"</span>, <span class="comment">//入口文件</span></div><div class="line">    output: &#123;</div><div class="line">      <span class="attr">filename</span>: <span class="string">"./js/bundle.js"</span> <span class="comment">//输出文件</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">module</span>: &#123;</div><div class="line">      <span class="attr">rules</span>: [&#123;</div><div class="line">          <span class="attr">test</span>: <span class="regexp">/\.scss$/</span>,</div><div class="line">          <span class="attr">loader</span>: extractSass.extract(&#123;</div><div class="line">              <span class="attr">loader</span>: [&#123;</div><div class="line">                  <span class="attr">loader</span>: <span class="string">"css-loader"</span></div><div class="line">              &#125;, &#123;</div><div class="line">                  <span class="attr">loader</span>: <span class="string">"sass-loader"</span></div><div class="line">              &#125;],</div><div class="line">              <span class="attr">fallbackLoader</span>: <span class="string">"style-loader"</span></div><div class="line">          &#125;)</div><div class="line">      &#125;]</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        extractSass</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>关于 Webpack2 方面的 Sass 编译，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从GitHub克隆应用程序的启动器分支( webpack2 )</span></div><div class="line">git <span class="built_in">clone</span> -b webpack2 https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
+<p>如何安装并运行该项目，请阅读 <a href="https://github.com/iq9891/learn-sass/blob/webpack2/README.md" target="_blank" rel="external"><strong>README.md</strong></a>。</p>
+<h2 id="Rollup-编译-Sass"><a href="#Rollup-编译-Sass" class="headerlink" title="Rollup 编译 Sass"></a><a href="http://rollupjs.org/" target="_blank" rel="external">Rollup</a> 编译 Sass</h2><p>Rollup 凭借着独特的 Tree hacking 受到了大家的关注。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/rollup/rollup.config.js" target="_blank" rel="external">rollup.config.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sass <span class="keyword">from</span> <span class="string">'rollup-plugin-sass'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  <span class="attr">entry</span>: <span class="string">'main.js'</span>, <span class="comment">//入口文件</span></div><div class="line">  dest: <span class="string">'./js/main.min.js'</span>, <span class="comment">//输出文件</span></div><div class="line">  plugins: [</div><div class="line">    sass(&#123;</div><div class="line">      <span class="attr">output</span>: <span class="string">'./css/bundle.css'</span> <span class="comment">//输出 CSS 的文件</span></div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>关于 Rollup 方面的 Sass 编译，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从GitHub克隆应用程序的启动器分支( rollup )</span></div><div class="line">git <span class="built_in">clone</span> -b rollup https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
+<p>如何安装并运行该项目，请阅读 <a href="https://github.com/iq9891/learn-sass/blob/rollup/README.md" target="_blank" rel="external"><strong>README.md</strong></a>。</p>
+
+        <hr style="margin: 1.6em 0;">
+        <p>转载请注明出处：<a href="/2017/02/10/sass/sasstool/">https://iq9891.github.io/2017/02/10/sass/sasstool/</a></p>
+        <p>本文可全文转载，但需得到原作者书面许可，同时保留原作者和出处，摘要引流则随意。</p>
+        <p>如有任何建议或疑问，欢迎留言讨论。</p>
+        <p>如果觉得文章不错的话，欢迎点一下分享。</p>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="https://iq9891.github.io/2017/02/10/sass/sasstool/" data-id="ciz00foqh0005mh95a4uepfyt" class="article-share-link">分享</a> -->
+      <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
+        <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址" style="margin: 2px 4px;"></a>
+      </div>
+      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      <!-- 
+        <a href="https://iq9891.github.io/2017/02/10/sass/sasstool/#ds-thread" class="article-comment-link">留言</a>
+      
+       -->
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Grunt/">Grunt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gulp/">Gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Rollup/">Rollup</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webpack1/">Webpack1</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webpack2/">Webpack2</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/09/sass/sasswhat/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Sass 是什么</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+      <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/02/10/sass/sasstool/" data-title="Sass 的编译工具" data-url="https://iq9891.github.io/2017/02/10/sass/sasstool/"></div>
+	<!-- 多说评论框 end -->
+</div>
+
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Grunt-编译-Sass"><span class="toc-number">1.</span> <span class="toc-text">Grunt 编译 Sass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gulp-编译-Sass"><span class="toc-number">2.</span> <span class="toc-text">Gulp 编译 Sass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webpack1-编译-Sass"><span class="toc-number">3.</span> <span class="toc-text">Webpack1 编译 Sass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webpack2-编译-Sass"><span class="toc-number">4.</span> <span class="toc-text">Webpack2 编译 Sass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rollup-编译-Sass"><span class="toc-number">5.</span> <span class="toc-text">Rollup 编译 Sass</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+
+  
+    
+
+  
+    
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2017 <a href="https://github.com/iq9891" target="_blank">李梦龙</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;649076408@qq.com
+    </div>
+  </div>
+</footer>
+<script src="//iq9891.github.io/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="//iq9891.github.io/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+
+    
+
+
+    	<script type="text/javascript">
+        var duoshuoQuery = {short_name:"true"};
+      </script>
+      <script src="//iq9891.github.io/duoshuo/embed.js"></script>
+
+
+<script src="//iq9891.github.io/js/is.js"></script>
+
+
+  <link href="//iq9891.github.io/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css">
+  <script src="//iq9891.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="//iq9891.github.io/js/script.js"></script>
+<script src="//iq9891.github.io/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>
