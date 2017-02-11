@@ -5,16 +5,25 @@
   
   <title>Sass 怎么声明变量 | 奔跑中的前端</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="大家都知道 JavaScript 可以声明变量的，那么 Sass 怎么声明变量呢？ Sass 的变量怎么得以良好的运用呢？今天我们就一起来了解一下 Sass 中怎么声明变量。">
+  <meta name="description" content="大家都知道 JavaScript 可以声明变量的，那么 Sass 怎么声明变量呢？ Sass 的变量怎么得以良好的运用呢？今天我们就一起来了解一下 Sass 中怎么声明变量。
+Demo 下载地址： https://github.com/iq9891/learn-sass.git 。
+关于 Sass 怎么声明变量，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。
+1234#移动到">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sass 怎么声明变量">
 <meta property="og:url" content="https://iq9891.github.io/2017/02/11/sass/sassvar/index.html">
 <meta property="og:site_name" content="奔跑中的前端">
-<meta property="og:description" content="大家都知道 JavaScript 可以声明变量的，那么 Sass 怎么声明变量呢？ Sass 的变量怎么得以良好的运用呢？今天我们就一起来了解一下 Sass 中怎么声明变量。">
-<meta property="og:updated_time" content="2017-02-11T07:10:44.000Z">
+<meta property="og:description" content="大家都知道 JavaScript 可以声明变量的，那么 Sass 怎么声明变量呢？ Sass 的变量怎么得以良好的运用呢？今天我们就一起来了解一下 Sass 中怎么声明变量。
+Demo 下载地址： https://github.com/iq9891/learn-sass.git 。
+关于 Sass 怎么声明变量，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。
+1234#移动到">
+<meta property="og:updated_time" content="2017-02-11T07:23:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sass 怎么声明变量">
-<meta name="twitter:description" content="大家都知道 JavaScript 可以声明变量的，那么 Sass 怎么声明变量呢？ Sass 的变量怎么得以良好的运用呢？今天我们就一起来了解一下 Sass 中怎么声明变量。">
+<meta name="twitter:description" content="大家都知道 JavaScript 可以声明变量的，那么 Sass 怎么声明变量呢？ Sass 的变量怎么得以良好的运用呢？今天我们就一起来了解一下 Sass 中怎么声明变量。
+Demo 下载地址： https://github.com/iq9891/learn-sass.git 。
+关于 Sass 怎么声明变量，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。
+1234#移动到">
   
   
     <link rel="icon" href="//iq9891.github.io/favicon.ico">
@@ -107,7 +116,11 @@ var _hmt = _hmt || [];
         <!-- Table of Contents -->
         
         <p>大家都知道 JavaScript 可以声明变量的，那么 Sass 怎么声明变量呢？ Sass 的变量怎么得以良好的运用呢？今天我们就一起来了解一下 Sass 中怎么声明变量。</p>
+<p><a href="https://github.com/iq9891/learn-sass.git" target="_blank" rel="external">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-sass.git" target="_blank" rel="external"><code>https://github.com/iq9891/learn-sass.git</code></a> 。</p>
+<p>关于 Sass 怎么声明变量，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从GitHub克隆应用程序的启动器分支( var )</span></div><div class="line">git <span class="built_in">clone</span> -b var https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
 <a id="more"></a>
+<p>如何安装并运行该项目，请阅读 <a href="https://github.com/iq9891/learn-sass/blob/var/README.md" target="_blank" rel="external"><strong>README.md</strong></a> 。</p>
 <h2 id="Sass-声明变量"><a href="#Sass-声明变量" class="headerlink" title="Sass 声明变量"></a>Sass 声明变量</h2><p>Sass 声明一个变量，必须是以 <code>$</code> 开头，并设置为 CSS 属性：</p>
 <figure class="highlight scss"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/var/sass/var.scss" target="_blank" rel="external">var.scss</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//声明变量</span></div><div class="line"><span class="variable">$color</span>: red;</div><div class="line"><span class="variable">$node</span>: h1;</div></pre></td></tr></table></figure>
 <p>变量的使用可以分为两种。第一种是运用到属性值当中，可以直接引用。第二种是在属性或者选择器的身上使用的格式是：<code>#{$variables}</code> 。</p>
