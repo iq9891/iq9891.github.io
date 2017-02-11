@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="奔跑中的前端">
 <meta property="og:description" content="在前文 Sass 是什么中，我们已经感受到了 Sass 强大魅力。今天，我们要一起学习一下 Sass 的编译工具。今天我们会通过利用当今非常流行的构建工具来实现我们编译 Sass 的理想。
 早在2013年我就开始玩 Sass 。那时候，只是单一的我只知道用工具 Koala 来编译 Sass ，还专门写了篇名为 《Sass 详解之编译工具 koala》 的博客。2013年，就连 Grunt 神似也刚">
-<meta property="og:updated_time" content="2017-02-10T15:59:42.000Z">
+<meta property="og:updated_time" content="2017-02-11T15:07:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sass 的编译工具">
 <meta name="twitter:description" content="在前文 Sass 是什么中，我们已经感受到了 Sass 强大魅力。今天，我们要一起学习一下 Sass 的编译工具。今天我们会通过利用当今非常流行的构建工具来实现我们编译 Sass 的理想。
@@ -55,7 +55,7 @@ var _hmt = _hmt || [];
     <div id="header-inner" class="inner">
       <nav id="sub-nav">
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://iq9891.github.io"></form>
@@ -139,6 +139,7 @@ var _hmt = _hmt || [];
 <p>关于 Rollup 方面的 Sass 编译，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从GitHub克隆应用程序的启动器分支( rollup )</span></div><div class="line">git <span class="built_in">clone</span> -b rollup https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
 <p>如何安装并运行该项目，请阅读 <a href="https://github.com/iq9891/learn-sass/blob/rollup/README.md" target="_blank" rel="external"><strong>README.md</strong></a>。</p>
+<p>通过以上介绍，相比大家已经知道了 Sass 用什么编译工具了吧。如果你对 Sass 就此产生了浓厚的兴趣，那么还请翻看本博客其他关于 <a href="/categories/Sass/">Sass 的文章</a>吧。</p>
 
         <hr style="margin: 1.6em 0;">
         <p>转载请注明出处：<a href="/2017/02/10/sass/sasstool/">https://iq9891.github.io/2017/02/10/sass/sasstool/</a></p>
@@ -148,7 +149,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="https://iq9891.github.io/2017/02/10/sass/sasstool/" data-id="ciz0rluh900066895x6sp37i9" class="article-share-link">Share</a> -->
+      <!-- <a data-url="https://iq9891.github.io/2017/02/10/sass/sasstool/" data-id="ciz1ch6ij0005wf95dsto2k5t" class="article-share-link">分享</a> -->
       <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
         <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
         <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
@@ -158,7 +159,7 @@ var _hmt = _hmt || [];
       </div>
       <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       <!-- 
-        <a href="https://iq9891.github.io/2017/02/10/sass/sasstool/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="https://iq9891.github.io/2017/02/10/sass/sasstool/#ds-thread" class="article-comment-link">留言</a>
       
        -->
       
@@ -171,7 +172,7 @@ var _hmt = _hmt || [];
 <nav id="article-nav">
   
     <a href="/2017/02/11/sass/sassvar/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
           Sass 怎么声明变量
@@ -181,7 +182,7 @@ var _hmt = _hmt || [];
   
   
     <a href="/2017/02/09/sass/sasswhat/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">Sass 是什么</div>
     </a>
   
@@ -209,7 +210,7 @@ var _hmt = _hmt || [];
     
       <div class="widget" id="toc-widget-fixed">
       
-        <strong class="toc-title">Content</strong>
+        <strong class="toc-title">文章目录</strong>
         <div class="toc-widget-list">
               <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Grunt-编译-Sass"><span class="toc-number">1.</span> <span class="toc-text">Grunt 编译 Sass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gulp-编译-Sass"><span class="toc-number">2.</span> <span class="toc-text">Gulp 编译 Sass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webpack1-编译-Sass"><span class="toc-number">3.</span> <span class="toc-text">Webpack1 编译 Sass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webpack2-编译-Sass"><span class="toc-number">4.</span> <span class="toc-text">Webpack2 编译 Sass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rollup-编译-Sass"><span class="toc-number">5.</span> <span class="toc-text">Rollup 编译 Sass</span></a></li></ol>
           </div>
@@ -244,7 +245,7 @@ var _hmt = _hmt || [];
       &copy; 2014 - 2017 <a href="https://github.com/iq9891" target="_blank">李梦龙</a>
     </div>
      <div id="footer-right">
-      Contact&nbsp;|&nbsp;649076408@qq.com
+      联系方式&nbsp;|&nbsp;649076408@qq.com
     </div>
   </div>
 </footer>
