@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>html5 中的音频 | 奔跑中的前端</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Html5 中新增加了音频标签 &amp;lt;audio&amp;gt; ，有了音频标签，我们就可以在浏览器中播放音频了。
+Demo 下载地址： https://github.com/iq9891/learn-html5.git 。
+关于 Html5 中的音频，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。
+1234#移动到您保存您的开发项目的文件夹。cd /path/to/your/pr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html5 中的音频">
+<meta property="og:url" content="https://iq9891.github.io/2017/02/14/html5/h5audio/index.html">
+<meta property="og:site_name" content="奔跑中的前端">
+<meta property="og:description" content="Html5 中新增加了音频标签 &amp;lt;audio&amp;gt; ，有了音频标签，我们就可以在浏览器中播放音频了。
+Demo 下载地址： https://github.com/iq9891/learn-html5.git 。
+关于 Html5 中的音频，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。
+1234#移动到您保存您的开发项目的文件夹。cd /path/to/your/pr">
+<meta property="og:image" content="https://iq9891.github.io/images/html5audio.png">
+<meta property="og:updated_time" content="2017-02-21T13:46:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html5 中的音频">
+<meta name="twitter:description" content="Html5 中新增加了音频标签 &amp;lt;audio&amp;gt; ，有了音频标签，我们就可以在浏览器中播放音频了。
+Demo 下载地址： https://github.com/iq9891/learn-html5.git 。
+关于 Html5 中的音频，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。
+1234#移动到您保存您的开发项目的文件夹。cd /path/to/your/pr">
+<meta name="twitter:image" content="https://iq9891.github.io/images/html5audio.png">
+  
+  
+    <link rel="icon" href="//iq9891.github.io/favicon.ico">
+  
+  
+    
+  
+  <link href="//iq9891.github.io/css/style.css" rel="stylesheet" type="text/css">
+  
+
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8bf97788829b64b2e0ecdd008e5eb6b3";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- End 百度统计 -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://iq9891.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">奔跑中的前端</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-html5/h5audio" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/14/html5/h5audio/" class="article-date">
+  <time datetime="2017-02-14T08:19:26.000Z" itemprop="datePublished">2017-02-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Html5/">Html5</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      html5 中的音频
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>Html5 中新增加了音频标签 <code>&lt;audio&gt;</code> ，有了音频标签，我们就可以在浏览器中播放音频了。</p>
+<p><a href="https://github.com/iq9891/learn-html5.git" target="_blank" rel="external">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-html5.git" target="_blank" rel="external"><code>https://github.com/iq9891/learn-html5.git</code></a> 。</p>
+<p>关于 Html5 中的音频，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( audio )</span></div><div class="line">git <span class="built_in">clone</span> -b audio https://github.com/iq9891/learn-html5.git</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>使用 Html5 的 <code>audio</code> 标签很简单，只需要在页面中写入这个标签，然后用 <code>src</code> 加上音频的链接，最后加上 <code>controls</code> 控制台的属性就可以在浏览器中创建出 <code>audio</code> 标签了。 <code>audio</code> 标签还有很多属性及方法，这里就不一一介绍了，因为 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/audio" target="_blank" rel="external">MDN</a> 已经介绍的很详细。若有兴趣，你可以<a href="https://jsfiddle.net/iq9891/pwzt6faq/" target="_blank" rel="external">在线玩耍 audio</a> 。</p>
+<figure class="highlight html"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/audio/audiouse.html" target="_blank" rel="external">audiouse.html</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>音频播放<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span> <span class="attr">src</span>=<span class="string">"sample.mp3"</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="微信解决自动播放"><a href="#微信解决自动播放" class="headerlink" title="微信解决自动播放"></a>微信解决自动播放</h2><p>微信中有自己的浏览器，内置腾讯 K5 浏览器内核。因为在 iOS 中， Safari 早在 iOS 8 的时候已经不支持音频自动播放了，所以微信中的浏览器做出了一点点的改进，如果在 <code>wx.ready</code> 方法里面执行播放，那么依旧可以解决自动播放。下面的代码中，需要自行填写有关微信的配置，小的只能帮助大家这么多了。</p>
+<figure class="highlight html"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/audio/audioautoplay.html" target="_blank" rel="external">audioautoplay.html</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>音频自动播放<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">audio</span> <span class="attr">id</span>=<span class="string">"audio"</span> <span class="attr">controls</span> <span class="attr">src</span>=<span class="string">"sample.mp3"</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="comment">//微信配置</span></div><div class="line">    wx.config(&#123;</div><div class="line">      <span class="attr">debug</span>:<span class="literal">false</span>,</div><div class="line">      <span class="attr">appId</span>: <span class="string">''</span>,</div><div class="line">      <span class="attr">timestamp</span>: <span class="number">10000</span>,</div><div class="line">      <span class="attr">nonceStr</span>: <span class="string">''</span>,</div><div class="line">      <span class="attr">signature</span>: <span class="string">''</span>,</div><div class="line">      <span class="attr">jsApiList</span>: []</div><div class="line">    &#125;);</div><div class="line">    <span class="comment">//微信中，验证完毕</span></div><div class="line">    wx.ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="comment">//执行播放音频</span></div><div class="line">      <span class="built_in">document</span>.getElementById(<span class="string">'audio'</span>).play();</div><div class="line">    &#125;);</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="兼容情况"><a href="#兼容情况" class="headerlink" title="兼容情况"></a>兼容情况</h2><p>介绍了那么多 audio 标签的黑魔法。要想使用 Html5 中的 <code>audio</code> 标签，先来看下<a href="http://caniuse.mojijs.com/Home/Html/item/key/audio/index.html" target="_blank" rel="external">兼容性</a>吧。截图如下：</p>
+<p><img src="/images/html5audio.png" alt="Html5 中的 audio 标签兼容性"></p>
+<p>从上图看来，各大浏览器对 <code>audio</code> 标签支持的很好，除了老牌 <strong>IE</strong> 和 <strong>Opera Mini</strong> 支持的稍微逊色，其他浏览器包括移动端支持的很好。</p>
+<p>通过以上介绍，想必大家已经知道了 Html5 中的音频是怎么回事了吧。如果你对 Html5 就此产生了浓厚的兴趣，那么还请翻看本博客其他关于 <a href="/categories/Html5/">Html5 的文章</a>。</p>
+
+        <hr style="margin: 1.6em 0;">
+        <p>转载请注明出处：<a href="/2017/02/14/html5/h5audio/">https://iq9891.github.io/2017/02/14/html5/h5audio/</a></p>
+        <p>本文可全文转载，但需得到原作者书面许可，同时保留原作者和出处，摘要引流则随意。</p>
+        <p>如有任何建议或疑问，欢迎留言讨论。</p>
+        <p>如果觉得文章不错的话，欢迎点一下分享。</p>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="https://iq9891.github.io/2017/02/14/html5/h5audio/" data-id="cizfl4olz0000xi95aoq8wnob" class="article-share-link">Share</a> -->
+      <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
+        <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址" style="margin: 2px 4px;"></a>
+      </div>
+      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      <!-- 
+        <a href="https://iq9891.github.io/2017/02/14/html5/h5audio/#ds-thread" class="article-comment-link">Comments</a>
+      
+       -->
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Html5/">Html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信/">微信</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/14/html5/h5canvasanim1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Canvas 动画之水波纹动画 2D 版
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/14/html5/h5video/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Html5 中的视频</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+      <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/02/14/html5/h5audio/" data-title="html5 中的音频" data-url="https://iq9891.github.io/2017/02/14/html5/h5audio/"></div>
+	<!-- 多说评论框 end -->
+</div>
+
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">Content</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用"><span class="toc-number">1.</span> <span class="toc-text">如何使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#微信解决自动播放"><span class="toc-number">2.</span> <span class="toc-text">微信解决自动播放</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#兼容情况"><span class="toc-number">3.</span> <span class="toc-text">兼容情况</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+
+  
+    
+
+  
+    
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2017 <a href="https://github.com/iq9891" target="_blank">李梦龙</a>
+    </div>
+     <div id="footer-right">
+      Contact&nbsp;|&nbsp;649076408@qq.com
+    </div>
+  </div>
+</footer>
+<script src="//iq9891.github.io/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="//iq9891.github.io/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+
+    
+
+
+    	<script type="text/javascript">
+        var duoshuoQuery = {short_name:"true"};
+      </script>
+      <script src="//iq9891.github.io/duoshuo/embed.js"></script>
+
+
+<script src="//iq9891.github.io/js/is.js"></script>
+
+
+  <link href="//iq9891.github.io/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css">
+  <script src="//iq9891.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="//iq9891.github.io/js/script.js"></script>
+<script src="//iq9891.github.io/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

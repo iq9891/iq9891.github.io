@@ -51,7 +51,7 @@ var _hmt = _hmt || [];
     <div id="header-inner" class="inner">
       <nav id="sub-nav">
         
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://iq9891.github.io"></form>
@@ -79,10 +79,321 @@ var _hmt = _hmt || [];
       <div class="outer">
         <section id="main">
   
-    <article id="post-sass/sassmixin" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-js/recursion" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/02/11/sass/sassmixin/" class="article-date">
-  <time datetime="2017-02-11T15:47:28.000Z" itemprop="datePublished">2017-02-11</time>
+    <a href="/2017/02/21/js/recursion/" class="article-date">
+  <time datetime="2017-02-21T02:01:01.000Z" itemprop="datePublished">2017-02-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js/">js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/21/js/recursion/">获取数组中的值</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>js中利用递归获取数据，最常见不过了，但是还有其他方式获取数据吗？下面就会为大家奉献一道面试题以更好的阐述递归的妙用。</p>
+<p>马上又到了一年一度的金三银四了，很多公司都开始敞开大门，迎来新一年的各种大神。各大公司的面试题也是层出不穷，今天和大家分享一下有关数组方面的面试题。</p>
+<p><a href="https://github.com/iq9891/learn-js.git">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-js.git"><code>https://github.com/iq9891/learn-js.git</code></a> 。</p>
+<p>关于 获取数组中的值，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( recursion )</span></div><div class="line">git <span class="built_in">clone</span> -b recursion https://github.com/iq9891/learn-js.git</div></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2017/02/21/js/recursion/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="https://iq9891.github.io/2017/02/21/js/recursion/" data-id="cizfl4omc0006xi95fx8ybd4t" class="article-share-link">Share</a> -->
+      <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
+        <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址" style="margin: 2px 4px;"></a>
+      </div>
+      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      <!-- 
+        <a href="https://iq9891.github.io/2017/02/21/js/recursion/#ds-thread" class="article-comment-link">Comments</a>
+      
+       -->
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-html5/h5hiveanim" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/16/html5/h5hiveanim/" class="article-date">
+  <time datetime="2017-02-16T12:02:22.000Z" itemprop="datePublished">2017-02-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Html5/">Html5</a>►<a class="article-category-link" href="/categories/Html5/canvas/">canvas</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/16/html5/h5hiveanim/">Canvas 动画之游走在蜜蜂格</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>有一条线，它的行走路线是一个等边六边形，它是怎么行走的呢？有一条线，他的路线可以自由选择，它是怎么走的呢？有一条线，它的颜色可以随机出现，它是怎么做到的呢？有一条线，它的行走轨迹是慢慢消失的，它是怎么做到的呢？有一条线，它的周围总是围绕着一些小的火花，它是怎么做到的呢？今天就分享给大家。</p>
+<p><a href="https://github.com/iq9891/learn-html5.git">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-html5.git"><code>https://github.com/iq9891/learn-html5.git</code></a> 。</p>
+<p>关于 Canvas 动画之游走在蜜蜂格，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。也可以<a href="https://jsfiddle.net/iq9891/5hkejutk/">在线看看</a>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( canvasanim2 )</span></div><div class="line">git <span class="built_in">clone</span> -b canvasanim2 https://github.com/iq9891/learn-html5.git</div></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2017/02/16/html5/h5hiveanim/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="https://iq9891.github.io/2017/02/16/html5/h5hiveanim/" data-id="cizfl4omb0004xi95ur4bcfg9" class="article-share-link">Share</a> -->
+      <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
+        <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址" style="margin: 2px 4px;"></a>
+      </div>
+      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      <!-- 
+        <a href="https://iq9891.github.io/2017/02/16/html5/h5hiveanim/#ds-thread" class="article-comment-link">Comments</a>
+      
+       -->
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Html5/">Html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/效果/">效果</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-html5/h5canvasanim1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/14/html5/h5canvasanim1/" class="article-date">
+  <time datetime="2017-02-14T09:30:26.000Z" itemprop="datePublished">2017-02-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Html5/">Html5</a>►<a class="article-category-link" href="/categories/Html5/canvas/">canvas</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/14/html5/h5canvasanim1/">Canvas 动画之水波纹动画 2D 版</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很久以前，在玩捕鱼达人的时候，突然发现开场的<a href="https://jsfiddle.net/iq9891/j0fkhrc3/">水波纹效果</a>非常炫酷，但是人家是 3D 的，我这个是 2D 的。不过没关系，好歹<a href="https://jsfiddle.net/iq9891/j0fkhrc3/">效果</a>出来了，今天就分享给大家。</p>
+<p><a href="https://github.com/iq9891/learn-html5.git">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-html5.git"><code>https://github.com/iq9891/learn-html5.git</code></a> 。</p>
+<p>关于 Canvas 动画之水波纹动画 2D 版，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。也可以<a href="https://jsfiddle.net/iq9891/j0fkhrc3/">在线看看</a>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( canvasanim1 )</span></div><div class="line">git <span class="built_in">clone</span> -b canvasanim1 https://github.com/iq9891/learn-html5.git</div></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2017/02/14/html5/h5canvasanim1/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="https://iq9891.github.io/2017/02/14/html5/h5canvasanim1/" data-id="cizfl4om40001xi95wrpw52pt" class="article-share-link">Share</a> -->
+      <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
+        <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址" style="margin: 2px 4px;"></a>
+      </div>
+      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      <!-- 
+        <a href="https://iq9891.github.io/2017/02/14/html5/h5canvasanim1/#ds-thread" class="article-comment-link">Comments</a>
+      
+       -->
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Html5/">Html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/效果/">效果</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-html5/h5audio" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/14/html5/h5audio/" class="article-date">
+  <time datetime="2017-02-14T08:19:26.000Z" itemprop="datePublished">2017-02-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Html5/">Html5</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/14/html5/h5audio/">html5 中的音频</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Html5 中新增加了音频标签 <code>&lt;audio&gt;</code> ，有了音频标签，我们就可以在浏览器中播放音频了。</p>
+<p><a href="https://github.com/iq9891/learn-html5.git">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-html5.git"><code>https://github.com/iq9891/learn-html5.git</code></a> 。</p>
+<p>关于 Html5 中的音频，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( audio )</span></div><div class="line">git <span class="built_in">clone</span> -b audio https://github.com/iq9891/learn-html5.git</div></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2017/02/14/html5/h5audio/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="https://iq9891.github.io/2017/02/14/html5/h5audio/" data-id="cizfl4olz0000xi95aoq8wnob" class="article-share-link">Share</a> -->
+      <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
+        <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址" style="margin: 2px 4px;"></a>
+      </div>
+      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      <!-- 
+        <a href="https://iq9891.github.io/2017/02/14/html5/h5audio/#ds-thread" class="article-comment-link">Comments</a>
+      
+       -->
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Html5/">Html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信/">微信</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-html5/h5video" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/14/html5/h5video/" class="article-date">
+  <time datetime="2017-02-14T02:18:20.000Z" itemprop="datePublished">2017-02-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Html5/">Html5</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/14/html5/h5video/">Html5 中的视频</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Html5 中新增加了视频标签 <code>&lt;video&gt;</code> ，有了视频标签，我们就可以在浏览器中播放视频了。在以前想要让浏览器播放视频，必须引用 Flash 插件来实现，而现在变得简单了。</p>
+<p><a href="https://github.com/iq9891/learn-html5.git">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-html5.git"><code>https://github.com/iq9891/learn-html5.git</code></a> 。</p>
+<p>关于 Html5 中的视频，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( video )</span></div><div class="line">git <span class="built_in">clone</span> -b video https://github.com/iq9891/learn-html5.git</div></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2017/02/14/html5/h5video/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="https://iq9891.github.io/2017/02/14/html5/h5video/" data-id="cizfl4omc0005xi95d9o7ry75" class="article-share-link">Share</a> -->
+      <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
+        <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址" style="margin: 2px 4px;"></a>
+      </div>
+      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      <!-- 
+        <a href="https://iq9891.github.io/2017/02/14/html5/h5video/#ds-thread" class="article-comment-link">Comments</a>
+      
+       -->
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Html5/">Html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信/">微信</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sass/sassdebug" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/13/sass/sassdebug/" class="article-date">
+  <time datetime="2017-02-13T08:52:22.000Z" itemprop="datePublished">2017-02-13</time>
 </a>
     
   <div class="article-category">
@@ -97,7 +408,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/11/sass/sassmixin/">Sass 中的混合( Mixin )</a>
+      <a class="article-title" href="/2017/02/13/sass/sassdebug/">Sass 中的调试</a>
     </h1>
   
 
@@ -105,19 +416,19 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>有关 Sass 的文章已经更新过一段时间了，今天和大家一起看的则是 Sass 中的一个特性，那就是混合( Mixin )。混合组件允许你定义的样式，可以重新使用在样式表，而无需诉诸非语义类。混合组件也可以包含完整的 CSS 规则，和其他任何一个地方允许 Sass 文件。他们甚至可以带参数，可以让你用很少的混合生产各种款式。</p>
+        <p>在 Sass 中，我们可以刷刷刷，嗖嗖嗖的用类似写脚本。在 JavaScript 中有很多方法调试写好的脚本，在 Sass 中也有相关的方法进行调试。</p>
 <p><a href="https://github.com/iq9891/learn-sass.git">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-sass.git"><code>https://github.com/iq9891/learn-sass.git</code></a> 。</p>
-<p>关于 Sass 怎么声明变量，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从GitHub克隆应用程序的启动器分支( mixin )</span></div><div class="line">git <span class="built_in">clone</span> -b mixin https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
+<p>关于 Sass 中的调试，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( debug )</span></div><div class="line">git <span class="built_in">clone</span> -b debug https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
         
           <p class="article-more-link">
-            <a href="/2017/02/11/sass/sassmixin/#more">继续阅读全文 »</a>
+            <a href="/2017/02/13/sass/sassdebug/#more">继续阅读全文 »</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="https://iq9891.github.io/2017/02/11/sass/sassmixin/" data-id="ciz2que9h00006f95spcjrvqc" class="article-share-link">分享</a> -->
+      <!-- <a data-url="https://iq9891.github.io/2017/02/13/sass/sassdebug/" data-id="cizfl4ome0009xi9590jys8yl" class="article-share-link">Share</a> -->
       <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
         <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
         <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
@@ -127,11 +438,11 @@ var _hmt = _hmt || [];
       </div>
       <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       <!-- 
-        <a href="https://iq9891.github.io/2017/02/11/sass/sassmixin/#ds-thread" class="article-comment-link">留言</a>
+        <a href="https://iq9891.github.io/2017/02/13/sass/sassdebug/#ds-thread" class="article-comment-link">Comments</a>
       
        -->
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gulp/">Gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass中的/">Sass中的@</a></li></ul>
 
     </footer>
   </div>
@@ -141,10 +452,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-sass/sassnest" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-sass/sassextend" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/02/11/sass/sassnest/" class="article-date">
-  <time datetime="2017-02-11T14:34:25.000Z" itemprop="datePublished">2017-02-11</time>
+    <a href="/2017/02/13/sass/sassextend/" class="article-date">
+  <time datetime="2017-02-13T07:58:33.000Z" itemprop="datePublished">2017-02-13</time>
 </a>
     
   <div class="article-category">
@@ -159,7 +470,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/11/sass/sassnest/">Sass 的嵌套语法</a>
+      <a class="article-title" href="/2017/02/13/sass/sassextend/">Sass 中的继承</a>
     </h1>
   
 
@@ -167,19 +478,19 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>运用 Sass 编写 CSS 样式，一大好处就是大大的省略了代码量，从而提高的开发的速度。那么都有哪些语法可以减少代码数量，提高开发效率呢？今天就为大家介绍一个非常实用的语法，那就是 Sass 的嵌套语法。下面我们就一起看看 Sass 的嵌套语法有多么的神奇吧。</p>
+        <p>当一个类名拥有另一个类名的部分或者所有样式的时候，在 CSS 中，我们不得不重复写或者是用逗号( <code>,</code> )隔开。但是在 Sass 中就不用这么麻烦，直接用 <code>@extend</code> 解决就好了。</p>
 <p><a href="https://github.com/iq9891/learn-sass.git">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-sass.git"><code>https://github.com/iq9891/learn-sass.git</code></a> 。</p>
-<p>关于 Sass 怎么声明变量，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从GitHub克隆应用程序的启动器分支( nest )</span></div><div class="line">git <span class="built_in">clone</span> -b nest https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
+<p>关于 Sass 中的继承，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( extend )</span></div><div class="line">git <span class="built_in">clone</span> -b extend https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
         
           <p class="article-more-link">
-            <a href="/2017/02/11/sass/sassnest/#more">继续阅读全文 »</a>
+            <a href="/2017/02/13/sass/sassextend/#more">继续阅读全文 »</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="https://iq9891.github.io/2017/02/11/sass/sassnest/" data-id="ciz1f1d5e0003jz95ocvjl947" class="article-share-link">分享</a> -->
+      <!-- <a data-url="https://iq9891.github.io/2017/02/13/sass/sassextend/" data-id="cizfl4omg000bxi95t5rovs65" class="article-share-link">Share</a> -->
       <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
         <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
         <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
@@ -189,11 +500,11 @@ var _hmt = _hmt || [];
       </div>
       <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       <!-- 
-        <a href="https://iq9891.github.io/2017/02/11/sass/sassnest/#ds-thread" class="article-comment-link">留言</a>
+        <a href="https://iq9891.github.io/2017/02/13/sass/sassextend/#ds-thread" class="article-comment-link">Comments</a>
       
        -->
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gulp/">Gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass中的/">Sass中的@</a></li></ul>
 
     </footer>
   </div>
@@ -203,10 +514,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-sass/sassvar" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-sass/sassloop" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/02/11/sass/sassvar/" class="article-date">
-  <time datetime="2017-02-11T04:51:11.000Z" itemprop="datePublished">2017-02-11</time>
+    <a href="/2017/02/13/sass/sassloop/" class="article-date">
+  <time datetime="2017-02-13T06:38:16.000Z" itemprop="datePublished">2017-02-13</time>
 </a>
     
   <div class="article-category">
@@ -221,7 +532,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/11/sass/sassvar/">Sass 怎么声明变量</a>
+      <a class="article-title" href="/2017/02/13/sass/sassloop/">Sass 中的循环</a>
     </h1>
   
 
@@ -229,19 +540,19 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>大家都知道 JavaScript 可以声明变量的，那么 Sass 怎么声明变量呢？ Sass 的变量怎么得以良好的运用呢？今天我们就一起来了解一下 Sass 中怎么声明变量。</p>
+        <p>在 Sass 中，循环的方法有三种， <code>@for</code> 、 <code>@each</code> 和 <code>@while</code> 。下面咱们就看一下三种循环究竟怎么写，看看三种循环有什么区别。</p>
 <p><a href="https://github.com/iq9891/learn-sass.git">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-sass.git"><code>https://github.com/iq9891/learn-sass.git</code></a> 。</p>
-<p>关于 Sass 怎么声明变量，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从GitHub克隆应用程序的启动器分支( var )</span></div><div class="line">git <span class="built_in">clone</span> -b var https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
+<p>关于 Sass 中的循环，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( loop )</span></div><div class="line">git <span class="built_in">clone</span> -b loop https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
         
           <p class="article-more-link">
-            <a href="/2017/02/11/sass/sassvar/#more">继续阅读全文 »</a>
+            <a href="/2017/02/13/sass/sassloop/#more">继续阅读全文 »</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="https://iq9891.github.io/2017/02/11/sass/sassvar/" data-id="ciz1f1d5i0007jz95sm6t5f59" class="article-share-link">分享</a> -->
+      <!-- <a data-url="https://iq9891.github.io/2017/02/13/sass/sassloop/" data-id="cizfl4omj000fxi950yy7zva0" class="article-share-link">Share</a> -->
       <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
         <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
         <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
@@ -251,11 +562,11 @@ var _hmt = _hmt || [];
       </div>
       <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       <!-- 
-        <a href="https://iq9891.github.io/2017/02/11/sass/sassvar/#ds-thread" class="article-comment-link">留言</a>
+        <a href="https://iq9891.github.io/2017/02/13/sass/sassloop/#ds-thread" class="article-comment-link">Comments</a>
       
        -->
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gulp/">Gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass中的/">Sass中的@</a></li></ul>
 
     </footer>
   </div>
@@ -265,10 +576,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-sass/sasstool" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-sass/sassif" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/02/10/sass/sasstool/" class="article-date">
-  <time datetime="2017-02-10T02:03:38.000Z" itemprop="datePublished">2017-02-10</time>
+    <a href="/2017/02/13/sass/sassif/" class="article-date">
+  <time datetime="2017-02-13T03:57:18.000Z" itemprop="datePublished">2017-02-13</time>
 </a>
     
   <div class="article-category">
@@ -283,7 +594,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/10/sass/sasstool/">Sass 的编译工具</a>
+      <a class="article-title" href="/2017/02/13/sass/sassif/">Sass 中的条件( If )</a>
     </h1>
   
 
@@ -291,19 +602,19 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在前文 <a href="./sasswhat">Sass 是什么</a>中，我们已经感受到了 Sass 强大魅力。今天，我们要一起学习一下 Sass 的编译工具。今天我们会通过利用当今非常流行的构建工具来实现我们编译 Sass 的理想。</p>
-<p>早在2013年我就开始玩 Sass 。那时候，只是单一的我只知道用工具 <a href="http://koala-app.com/index-zh.html">Koala</a> 来编译 Sass ，还专门写了篇名为 <a href="http://blog.csdn.net/lee_magnum/article/details/11895611">《Sass 详解之编译工具 koala》</a> 的博客。2013年，就连 Grunt 神似也刚刚起步，还是鲜为人知的项目，所以 Sass 在那时候还并未流行开来。但是直至今天，2017年了。我又恢复了我的博客生涯，给大家也带来了全新的 Sass 编译工具的介绍。下面我们就一起开始 Sass 编译工具之旅吧。</p>
-<p>为了让大家更好的亲身感受编译工具的强大，我在 <a href="https://github.com/iq9891/">Github</a> 上准备了 <a href="https://github.com/iq9891/learn-sass.git">Demo</a> ，让大家可以亲子感受到编译工具的强大。</p>
-<p><a href="https://github.com/iq9891/learn-sass.git">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-sass.git"><code>https://github.com/iq9891/learn-sass.git</code></a></p>
+        <p>真正 Sass 的编写中，少不了方法及混合的搭配使用，少不了条件判断。那么 Sass 中的条件判断如何使用，如何书写呢？接下来我们就一起走进 Sass 的条件判断 中，看看 Sass 的条件判断如何书写。</p>
+<p><a href="https://github.com/iq9891/learn-sass.git">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-sass.git"><code>https://github.com/iq9891/learn-sass.git</code></a> 。</p>
+<p>关于 Sass 中的条件，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( if )</span></div><div class="line">git <span class="built_in">clone</span> -b <span class="keyword">if</span> https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
         
           <p class="article-more-link">
-            <a href="/2017/02/10/sass/sasstool/#more">继续阅读全文 »</a>
+            <a href="/2017/02/13/sass/sassif/#more">继续阅读全文 »</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="https://iq9891.github.io/2017/02/10/sass/sasstool/" data-id="ciz1f1d5i0006jz95ypzya52v" class="article-share-link">分享</a> -->
+      <!-- <a data-url="https://iq9891.github.io/2017/02/13/sass/sassif/" data-id="cizfl4omm000hxi95py98qw3k" class="article-share-link">Share</a> -->
       <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
         <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
         <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
@@ -313,11 +624,11 @@ var _hmt = _hmt || [];
       </div>
       <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       <!-- 
-        <a href="https://iq9891.github.io/2017/02/10/sass/sasstool/#ds-thread" class="article-comment-link">留言</a>
+        <a href="https://iq9891.github.io/2017/02/13/sass/sassif/#ds-thread" class="article-comment-link">Comments</a>
       
        -->
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Grunt/">Grunt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gulp/">Gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Rollup/">Rollup</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webpack1/">Webpack1</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webpack2/">Webpack2</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass中的/">Sass中的@</a></li></ul>
 
     </footer>
   </div>
@@ -327,10 +638,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-sass/sasswhat" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-sass/sassfunction" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/02/09/sass/sasswhat/" class="article-date">
-  <time datetime="2017-02-09T08:54:50.000Z" itemprop="datePublished">2017-02-09</time>
+    <a href="/2017/02/13/sass/sassfunction/" class="article-date">
+  <time datetime="2017-02-13T02:24:02.000Z" itemprop="datePublished">2017-02-13</time>
 </a>
     
   <div class="article-category">
@@ -345,7 +656,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/09/sass/sasswhat/">Sass 是什么</a>
+      <a class="article-title" href="/2017/02/13/sass/sassfunction/">Sass 中的方法( Function )</a>
     </h1>
   
 
@@ -353,17 +664,19 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Sass 是什么呢？引用 <a href="http://sass-lang.com/">Sass 官网</a>的一句话： <strong>Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.</strong> 这句话什么意思呢？ Sass 究竟是什么呢？ Sass 是世界上最成熟，稳定，功能强大的专业级 CSS 扩展语言。</p>
-<p>在我看来， Sass 是一种基于 Ruby 编写的 CSS 预处理器，诞生于2007年，是最早也是最成熟的一款 CSS 预处理器语言，它可以使用变量、嵌套、混入、继承，运算，函数等功能，使得 CSS 的开发，变得简单清晰可维护，同时也大大节省了设计者的时间，提高了效率。 Sass 最后还是会编译出合法的 CSS 让浏览器使用，也就是说它本身的语法并不太容易让浏览器识别，因为它不是标准的 CSS 格式，在它的语法内部可以使用动态变量等，所以它更像一种极简单的动态语言。</p>
+        <p>在日常开发 Sass 的工作中，有很多时候想要封装个公共方法，这时候我们就得需要掌握 Sass 中如何定义并使用 方法( Function )。有了 Function ，我们在编写 Sass 的时候，就像编写脚本语言一样，很是方便。</p>
+<p><a href="https://github.com/iq9891/learn-sass.git">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-sass.git"><code>https://github.com/iq9891/learn-sass.git</code></a> 。</p>
+<p>关于 Sass 中的方法，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( function )</span></div><div class="line">git <span class="built_in">clone</span> -b <span class="keyword">function</span> https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
         
           <p class="article-more-link">
-            <a href="/2017/02/09/sass/sasswhat/#more">继续阅读全文 »</a>
+            <a href="/2017/02/13/sass/sassfunction/#more">继续阅读全文 »</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="https://iq9891.github.io/2017/02/09/sass/sasswhat/" data-id="ciz1f1d5l0008jz95nta60uah" class="article-share-link">分享</a> -->
+      <!-- <a data-url="https://iq9891.github.io/2017/02/13/sass/sassfunction/" data-id="cizfl4omp000lxi95g5okkfs4" class="article-share-link">Share</a> -->
       <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
         <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
         <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
@@ -373,71 +686,11 @@ var _hmt = _hmt || [];
       </div>
       <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       <!-- 
-        <a href="https://iq9891.github.io/2017/02/09/sass/sasswhat/#ds-thread" class="article-comment-link">留言</a>
+        <a href="https://iq9891.github.io/2017/02/13/sass/sassfunction/#ds-thread" class="article-comment-link">Comments</a>
       
        -->
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hexo/buildblog" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/02/07/hexo/buildblog/" class="article-date">
-  <time datetime="2017-02-07T04:03:28.000Z" itemprop="datePublished">2017-02-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Node/">Node</a>►<a class="article-category-link" href="/categories/Node/Hexo/">Hexo</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/07/hexo/buildblog/">Hexo 搭建 Github 静态博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>看着网上各种博客，各种技术分享层出不穷，我也忍不住想要分享一下做前端这些年我所走的路，踩的坑，以及未来的一些计划。2017年2月7日，我开始持续更新此博客，更新频率一周一篇，更新内容不限，但都是本人原创。</p>
-<p>静态博客怎么做呢？我首先想到的是 <a href="wordpress.com">Wordpress</a> 。但转念一想，我既然是做前端的，不如看看有关前端的静态博客有没有现成的 SSG 。经过了一些 Google ，最终还是选择了 <a href="https://hexo.io/">Hexo</a> 。接下来我就介绍一下我选择 Hexo 的原因。</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/02/07/hexo/buildblog/#more">继续阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <!-- <a data-url="https://iq9891.github.io/2017/02/07/hexo/buildblog/" data-id="ciz1f1d5c0002jz95fxir67qz" class="article-share-link">分享</a> -->
-      <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
-        <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
-        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
-        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间" style="margin: 2px 4px;"></a>
-        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="margin: 2px 4px;"></a>
-        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址" style="margin: 2px 4px;"></a>
-      </div>
-      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-      <!-- 
-        <a href="https://iq9891.github.io/2017/02/07/hexo/buildblog/#ds-thread" class="article-comment-link">留言</a>
-      
-       -->
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass中的/">Sass中的@</a></li></ul>
 
     </footer>
   </div>
@@ -448,6 +701,10 @@ var _hmt = _hmt || [];
 
   
 
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next&raquo;</a>
+  </nav>
 
 </section>
            
@@ -481,9 +738,9 @@ var _hmt = _hmt || [];
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title categories">分类</h3>
+    <h3 class="widget-title categories">Categories</h3>
     <div class="widget" id="categories">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Node/">Node</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Node/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Sass/">Sass</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Html5/">Html5</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Html5/canvas/">canvas</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node/">Node</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Node/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Sass/">Sass</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -491,37 +748,37 @@ var _hmt = _hmt || [];
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title tagcloud">标签云</h3>
+    <h3 class="widget-title tagcloud">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Grunt/" style="font-size: 10px;">Grunt</a> <a href="/tags/Gulp/" style="font-size: 15px;">Gulp</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Rollup/" style="font-size: 10px;">Rollup</a> <a href="/tags/Sass/" style="font-size: 20px;">Sass</a> <a href="/tags/Webpack1/" style="font-size: 10px;">Webpack1</a> <a href="/tags/Webpack2/" style="font-size: 10px;">Webpack2</a>
+      <a href="/tags/Grunt/" style="font-size: 10px;">Grunt</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Html5/" style="font-size: 15px;">Html5</a> <a href="/tags/Rollup/" style="font-size: 10px;">Rollup</a> <a href="/tags/Sass/" style="font-size: 20px;">Sass</a> <a href="/tags/Sass中的/" style="font-size: 17.5px;">Sass中的@</a> <a href="/tags/Webpack1/" style="font-size: 10px;">Webpack1</a> <a href="/tags/Webpack2/" style="font-size: 10px;">Webpack2</a> <a href="/tags/canvas/" style="font-size: 12.5px;">canvas</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/微信/" style="font-size: 12.5px;">微信</a> <a href="/tags/效果/" style="font-size: 12.5px;">效果</a> <a href="/tags/移动端/" style="font-size: 12.5px;">移动端</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title recent-posts">最新文章</h3>
+    <h3 class="widget-title recent-posts">Recent Posts</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2017/02/11/sass/sassmixin/">Sass 中的混合( Mixin )</a>
+            <a href="/2017/02/21/js/recursion/">获取数组中的值</a>
           </li>
         
           <li>
-            <a href="/2017/02/11/sass/sassnest/">Sass 的嵌套语法</a>
+            <a href="/2017/02/16/html5/h5hiveanim/">Canvas 动画之游走在蜜蜂格</a>
           </li>
         
           <li>
-            <a href="/2017/02/11/sass/sassvar/">Sass 怎么声明变量</a>
+            <a href="/2017/02/14/html5/h5canvasanim1/">Canvas 动画之水波纹动画 2D 版</a>
           </li>
         
           <li>
-            <a href="/2017/02/10/sass/sasstool/">Sass 的编译工具</a>
+            <a href="/2017/02/14/html5/h5audio/">html5 中的音频</a>
           </li>
         
           <li>
-            <a href="/2017/02/09/sass/sasswhat/">Sass 是什么</a>
+            <a href="/2017/02/14/html5/h5video/">Html5 中的视频</a>
           </li>
         
       </ul>
@@ -531,7 +788,7 @@ var _hmt = _hmt || [];
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title lastest-comments">最新评论</h3>
+    <h3 class="widget-title lastest-comments">Latest Comments</h3>
     <div class="widget">
          <div class="hot-comments">
     <!-- 多说最新评论 start -->
@@ -549,9 +806,9 @@ var _hmt = _hmt || [];
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title archive">归档</h3>
+    <h3 class="widget-title archive">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">16</span></li></ul>
     </div>
   </div>
 
@@ -567,7 +824,7 @@ var _hmt = _hmt || [];
       &copy; 2014 - 2017 <a href="https://github.com/iq9891" target="_blank">李梦龙</a>
     </div>
      <div id="footer-right">
-      联系方式&nbsp;|&nbsp;649076408@qq.com
+      Contact&nbsp;|&nbsp;649076408@qq.com
     </div>
   </div>
 </footer>

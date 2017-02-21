@@ -13,7 +13,7 @@ Demo 下载地址： https://github.com/iq9891/">
 <meta property="og:site_name" content="奔跑中的前端">
 <meta property="og:description" content="有关 Sass 的文章已经更新过一段时间了，今天和大家一起看的则是 Sass 中的一个特性，那就是混合( Mixin )。混合组件允许你定义的样式，可以重新使用在样式表，而无需诉诸非语义类。混合组件也可以包含完整的 CSS 规则，和其他任何一个地方允许 Sass 文件。他们甚至可以带参数，可以让你用很少的混合生产各种款式。
 Demo 下载地址： https://github.com/iq9891/">
-<meta property="og:updated_time" content="2017-02-12T15:02:54.000Z">
+<meta property="og:updated_time" content="2017-02-21T13:46:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sass 中的混合( Mixin )">
 <meta name="twitter:description" content="有关 Sass 的文章已经更新过一段时间了，今天和大家一起看的则是 Sass 中的一个特性，那就是混合( Mixin )。混合组件允许你定义的样式，可以重新使用在样式表，而无需诉诸非语义类。混合组件也可以包含完整的 CSS 规则，和其他任何一个地方允许 Sass 文件。他们甚至可以带参数，可以让你用很少的混合生产各种款式。
@@ -55,7 +55,7 @@ var _hmt = _hmt || [];
     <div id="header-inner" class="inner">
       <nav id="sub-nav">
         
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://iq9891.github.io"></form>
@@ -111,8 +111,8 @@ var _hmt = _hmt || [];
         
         <p>有关 Sass 的文章已经更新过一段时间了，今天和大家一起看的则是 Sass 中的一个特性，那就是混合( Mixin )。混合组件允许你定义的样式，可以重新使用在样式表，而无需诉诸非语义类。混合组件也可以包含完整的 CSS 规则，和其他任何一个地方允许 Sass 文件。他们甚至可以带参数，可以让你用很少的混合生产各种款式。</p>
 <p><a href="https://github.com/iq9891/learn-sass.git" target="_blank" rel="external">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-sass.git" target="_blank" rel="external"><code>https://github.com/iq9891/learn-sass.git</code></a> 。</p>
-<p>关于 Sass 怎么声明变量，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从GitHub克隆应用程序的启动器分支( mixin )</span></div><div class="line">git <span class="built_in">clone</span> -b mixin https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
+<p>关于 Sass 中的混合，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( mixin )</span></div><div class="line">git <span class="built_in">clone</span> -b mixin https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="定义一个-Mixin"><a href="#定义一个-Mixin" class="headerlink" title="定义一个 Mixin"></a>定义一个 Mixin</h2><figure class="highlight scss"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/mixin/sass/mixindefining.scss" target="_blank" rel="external">mixindefining.scss</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">mixin</span> setFont &#123;</div><div class="line">  <span class="attribute">font</span>: &#123;</div><div class="line">    family: <span class="string">'微软雅黑'</span>;</div><div class="line">    size: <span class="number">5px</span>;</div><div class="line">    weight: bold;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="使用一个-Mixin"><a href="#使用一个-Mixin" class="headerlink" title="使用一个 Mixin"></a>使用一个 Mixin</h2><figure class="highlight scss"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/mixin/sass/mixinincluding.scss" target="_blank" rel="external">mixinincluding.scss</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//引用一个 Sass 文件</span></div><div class="line">@<span class="keyword">import</span> <span class="string">"mixindefining.scss"</span>;</div><div class="line"><span class="comment">//用 @include 使用一个 Mixin</span></div><div class="line"><span class="selector-class">.myTitle</span> &#123;</div><div class="line">  @<span class="keyword">include</span> setFont;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -131,7 +131,7 @@ var _hmt = _hmt || [];
 <p>被编译为：</p>
 <figure class="highlight css"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/mixin/css/mixinarguments.css" target="_blank" rel="external">mixinarguments.css</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.boxShadow</span> &#123;</div><div class="line">  <span class="attribute">-moz-box-shadow</span>: <span class="number">0px</span> <span class="number">4px</span> <span class="number">5px</span> <span class="number">#666</span>, <span class="number">2px</span> <span class="number">6px</span> <span class="number">10px</span> <span class="number">#999</span>;</div><div class="line">  <span class="attribute">-webkit-box-shadow</span>: <span class="number">0px</span> <span class="number">4px</span> <span class="number">5px</span> <span class="number">#666</span>, <span class="number">2px</span> <span class="number">6px</span> <span class="number">10px</span> <span class="number">#999</span>;</div><div class="line">  <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">4px</span> <span class="number">5px</span> <span class="number">#666</span>, <span class="number">2px</span> <span class="number">6px</span> <span class="number">10px</span> <span class="number">#999</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Mixin 中的内容可以包含很多东西，不仅是包含属性，也可以包含整个组件。我认为 Mixin 可以算得上是 Sass 中的代码块。</p>
-<p>通过以上介绍，相比大家已经知道了 Sass 中的混合( Mixin )是怎么回事了吧。如果你对 Sass 就此产生了浓厚的兴趣，那么还请翻看本博客其他关于 <a href="/categories/Sass/">Sass 的文章</a>吧。</p>
+<p>通过以上介绍，想必大家已经知道了 Sass 中的混合( Mixin )是怎么回事了吧。如果你对 Sass 就此产生了浓厚的兴趣，那么还请翻看本博客其他关于 <a href="/categories/Sass/">Sass 的文章</a>吧。</p>
 
         <hr style="margin: 1.6em 0;">
         <p>转载请注明出处：<a href="/2017/02/11/sass/sassmixin/">https://iq9891.github.io/2017/02/11/sass/sassmixin/</a></p>
@@ -141,7 +141,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="https://iq9891.github.io/2017/02/11/sass/sassmixin/" data-id="ciz2que9h00006f95spcjrvqc" class="article-share-link">分享</a> -->
+      <!-- <a data-url="https://iq9891.github.io/2017/02/11/sass/sassmixin/" data-id="ciz2que9h00006f95spcjrvqc" class="article-share-link">Share</a> -->
       <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
         <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
         <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
@@ -151,11 +151,11 @@ var _hmt = _hmt || [];
       </div>
       <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       <!-- 
-        <a href="https://iq9891.github.io/2017/02/11/sass/sassmixin/#ds-thread" class="article-comment-link">留言</a>
+        <a href="https://iq9891.github.io/2017/02/11/sass/sassmixin/#ds-thread" class="article-comment-link">Comments</a>
       
        -->
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gulp/">Gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass中的/">Sass中的@</a></li></ul>
 
     </footer>
   </div>
@@ -163,9 +163,18 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
+    <a href="/2017/02/13/sass/sassfunction/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Sass 中的方法( Function )
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/02/11/sass/sassnest/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Sass 的嵌套语法</div>
     </a>
   
@@ -193,7 +202,7 @@ var _hmt = _hmt || [];
     
       <div class="widget" id="toc-widget-fixed">
       
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Content</strong>
         <div class="toc-widget-list">
               <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义一个-Mixin"><span class="toc-number">1.</span> <span class="toc-text">定义一个 Mixin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用一个-Mixin"><span class="toc-number">2.</span> <span class="toc-text">使用一个 Mixin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向-Mixin-中传参数"><span class="toc-number">3.</span> <span class="toc-text">向 Mixin 中传参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向-Mixin-中可变参数"><span class="toc-number">4.</span> <span class="toc-text">向 Mixin 中可变参数</span></a></li></ol>
           </div>
@@ -228,7 +237,7 @@ var _hmt = _hmt || [];
       &copy; 2014 - 2017 <a href="https://github.com/iq9891" target="_blank">李梦龙</a>
     </div>
      <div id="footer-right">
-      联系方式&nbsp;|&nbsp;649076408@qq.com
+      Contact&nbsp;|&nbsp;649076408@qq.com
     </div>
   </div>
 </footer>

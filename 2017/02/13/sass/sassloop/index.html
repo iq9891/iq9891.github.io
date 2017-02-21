@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Sass 中的循环 | 奔跑中的前端</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在 Sass 中，循环的方法有三种， @for 、 @each 和 @while 。下面咱们就看一下三种循环究竟怎么写，看看三种循环有什么区别。
+Demo 下载地址： https://github.com/iq9891/learn-sass.git 。
+关于 Sass 中的循环，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。
+1234#移动到您保存您的开发项目的文件夹。cd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass 中的循环">
+<meta property="og:url" content="https://iq9891.github.io/2017/02/13/sass/sassloop/index.html">
+<meta property="og:site_name" content="奔跑中的前端">
+<meta property="og:description" content="在 Sass 中，循环的方法有三种， @for 、 @each 和 @while 。下面咱们就看一下三种循环究竟怎么写，看看三种循环有什么区别。
+Demo 下载地址： https://github.com/iq9891/learn-sass.git 。
+关于 Sass 中的循环，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。
+1234#移动到您保存您的开发项目的文件夹。cd">
+<meta property="og:updated_time" content="2017-02-21T13:46:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sass 中的循环">
+<meta name="twitter:description" content="在 Sass 中，循环的方法有三种， @for 、 @each 和 @while 。下面咱们就看一下三种循环究竟怎么写，看看三种循环有什么区别。
+Demo 下载地址： https://github.com/iq9891/learn-sass.git 。
+关于 Sass 中的循环，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。
+1234#移动到您保存您的开发项目的文件夹。cd">
+  
+  
+    <link rel="icon" href="//iq9891.github.io/favicon.ico">
+  
+  
+    
+  
+  <link href="//iq9891.github.io/css/style.css" rel="stylesheet" type="text/css">
+  
+
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8bf97788829b64b2e0ecdd008e5eb6b3";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- End 百度统计 -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://iq9891.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">奔跑中的前端</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-sass/sassloop" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/13/sass/sassloop/" class="article-date">
+  <time datetime="2017-02-13T06:38:16.000Z" itemprop="datePublished">2017-02-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Sass/">Sass</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Sass 中的循环
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>在 Sass 中，循环的方法有三种， <code>@for</code> 、 <code>@each</code> 和 <code>@while</code> 。下面咱们就看一下三种循环究竟怎么写，看看三种循环有什么区别。</p>
+<p><a href="https://github.com/iq9891/learn-sass.git" target="_blank" rel="external">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-sass.git" target="_blank" rel="external"><code>https://github.com/iq9891/learn-sass.git</code></a> 。</p>
+<p>关于 Sass 中的循环，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( loop )</span></div><div class="line">git <span class="built_in">clone</span> -b loop https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="for-循环"><a href="#for-循环" class="headerlink" title="@for 循环"></a><code>@for</code> 循环</h2><p><code>@for</code> 循环的格式： <code>@for $var from &lt;start&gt; through &lt;end&gt;</code> 。 <code>$var</code> 是代表循环索引。 <code>&lt;start&gt;</code> 代表循环开始。 <code>&lt;end&gt;</code> 代表循环结束。</p>
+<figure class="highlight scss"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/loop/sass/sassfor.scss" target="_blank" rel="external">sassfor.scss</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用 @for 定义一个从 0 到 5 的循环</span></div><div class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 0 through 5 &#123;</div><div class="line">  <span class="selector-class">.long</span>#&#123;<span class="variable">$i</span>&#125; &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">10px</span> * <span class="variable">$i</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译为：</p>
+<figure class="highlight css"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/loop/css/sassfor.css" target="_blank" rel="external">sassfor.css</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.long0</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">0px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.long1</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.long2</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.long3</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">30px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.long4</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.long5</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">50px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="each-循环"><a href="#each-循环" class="headerlink" title="@each 循环"></a><code>@each</code> 循环</h2><p><code>@each</code> 循环的格式： <code>@each $var in &lt;list&gt;</code> 。 <code>$var</code> 是代表循环索引。 <code>&lt;list&gt;</code> 代表 List 类型的一维数据。如果需要获取索引，可以利用一下 <a href="http://sass-lang.com/documentation/Sass/Script/Functions.html#index-instance_method" target="_blank" rel="external">index</a> 方法。例如：</p>
+<figure class="highlight scss"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/loop/sass/sasseach.scss" target="_blank" rel="external">sasseach.scss</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//声明一个 List 类型的一维数据</span></div><div class="line"><span class="variable">$size</span>: ();</div><div class="line"><span class="comment">//利用 @for 和 append 方法向 $size 中添加数据</span></div><div class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 0 through 3 &#123;</div><div class="line">  <span class="variable">$size</span>: append(<span class="variable">$size</span>, <span class="variable">$i</span>*<span class="number">10px</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 利用 @each 设置数据</span></div><div class="line">@<span class="keyword">each</span> <span class="variable">$var</span> in <span class="variable">$size</span> &#123;</div><div class="line">  <span class="selector-class">.long-</span>#&#123;index(<span class="variable">$size</span>, <span class="variable">$var</span>)&#125; &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="variable">$var</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译为：</p>
+<figure class="highlight css"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/loop/css/sasseach.css" target="_blank" rel="external">sasseach.css</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.long-1</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">0px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.long-2</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.long-3</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="while-循环"><a href="#while-循环" class="headerlink" title="@while 循环"></a><code>@while</code> 循环</h2><p><code>@while</code> 是根据一段判断条件执行的循环，当循环为 true 的时候，进行循环，否则就跳出循环。</p>
+<figure class="highlight scss"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/loop/sass/sasswhile.scss" target="_blank" rel="external">sasswhile.scss</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//定义一个变量</span></div><div class="line"><span class="variable">$i</span>: <span class="number">0</span>;</div><div class="line">@<span class="keyword">while</span> <span class="variable">$i</span> &gt; 6 &#123;</div><div class="line">  <span class="comment">//设置</span></div><div class="line">  <span class="selector-class">.item-</span>#&#123;<span class="variable">$i</span>&#125; &#123; <span class="attribute">width</span>: <span class="number">2em</span> * <span class="variable">$i</span>; &#125;</div><div class="line">  <span class="comment">//改变变量的值</span></div><div class="line">  <span class="variable">$i</span>: <span class="variable">$i</span> + <span class="number">2</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被编译为：</p>
+<figure class="highlight css"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/loop/css/sasswhile.css" target="_blank" rel="external">sasswhile.css</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item-0</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">0em</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.item-2</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">4em</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.item-4</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">8em</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过以上介绍，想必大家已经知道了 Sass 中的循环是怎么回事了吧。如果你对 Sass 就此产生了浓厚的兴趣，那么还请翻看本博客其他关于 <a href="/categories/Sass/">Sass 的文章</a>吧。</p>
+
+        <hr style="margin: 1.6em 0;">
+        <p>转载请注明出处：<a href="/2017/02/13/sass/sassloop/">https://iq9891.github.io/2017/02/13/sass/sassloop/</a></p>
+        <p>本文可全文转载，但需得到原作者书面许可，同时保留原作者和出处，摘要引流则随意。</p>
+        <p>如有任何建议或疑问，欢迎留言讨论。</p>
+        <p>如果觉得文章不错的话，欢迎点一下分享。</p>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="https://iq9891.github.io/2017/02/13/sass/sassloop/" data-id="cizfl4omj000fxi950yy7zva0" class="article-share-link">Share</a> -->
+      <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
+        <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址" style="margin: 2px 4px;"></a>
+      </div>
+      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      <!-- 
+        <a href="https://iq9891.github.io/2017/02/13/sass/sassloop/#ds-thread" class="article-comment-link">Comments</a>
+      
+       -->
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass中的/">Sass中的@</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/13/sass/sassextend/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Sass 中的继承
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/13/sass/sassif/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Sass 中的条件( If )</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+      <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/02/13/sass/sassloop/" data-title="Sass 中的循环" data-url="https://iq9891.github.io/2017/02/13/sass/sassloop/"></div>
+	<!-- 多说评论框 end -->
+</div>
+
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">Content</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#for-循环"><span class="toc-number">1.</span> <span class="toc-text">@for 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#each-循环"><span class="toc-number">2.</span> <span class="toc-text">@each 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#while-循环"><span class="toc-number">3.</span> <span class="toc-text">@while 循环</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+
+  
+    
+
+  
+    
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2017 <a href="https://github.com/iq9891" target="_blank">李梦龙</a>
+    </div>
+     <div id="footer-right">
+      Contact&nbsp;|&nbsp;649076408@qq.com
+    </div>
+  </div>
+</footer>
+<script src="//iq9891.github.io/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="//iq9891.github.io/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+
+    
+
+
+    	<script type="text/javascript">
+        var duoshuoQuery = {short_name:"true"};
+      </script>
+      <script src="//iq9891.github.io/duoshuo/embed.js"></script>
+
+
+<script src="//iq9891.github.io/js/is.js"></script>
+
+
+  <link href="//iq9891.github.io/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css">
+  <script src="//iq9891.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="//iq9891.github.io/js/script.js"></script>
+<script src="//iq9891.github.io/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

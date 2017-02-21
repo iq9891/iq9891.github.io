@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Canvas 动画之游走在蜜蜂格 | 奔跑中的前端</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="有一条线，它的行走路线是一个等边六边形，它是怎么行走的呢？有一条线，他的路线可以自由选择，它是怎么走的呢？有一条线，它的颜色可以随机出现，它是怎么做到的呢？有一条线，它的行走轨迹是慢慢消失的，它是怎么做到的呢？有一条线，它的周围总是围绕着一些小的火花，它是怎么做到的呢？今天就分享给大家。
+Demo 下载地址： https://github.com/iq9891/learn-html5.git 。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Canvas 动画之游走在蜜蜂格">
+<meta property="og:url" content="https://iq9891.github.io/2017/02/16/html5/h5hiveanim/index.html">
+<meta property="og:site_name" content="奔跑中的前端">
+<meta property="og:description" content="有一条线，它的行走路线是一个等边六边形，它是怎么行走的呢？有一条线，他的路线可以自由选择，它是怎么走的呢？有一条线，它的颜色可以随机出现，它是怎么做到的呢？有一条线，它的行走轨迹是慢慢消失的，它是怎么做到的呢？有一条线，它的周围总是围绕着一些小的火花，它是怎么做到的呢？今天就分享给大家。
+Demo 下载地址： https://github.com/iq9891/learn-html5.git 。">
+<meta property="og:image" content="https://iq9891.github.io/images/h5hive.jpg">
+<meta property="og:updated_time" content="2017-02-21T15:19:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Canvas 动画之游走在蜜蜂格">
+<meta name="twitter:description" content="有一条线，它的行走路线是一个等边六边形，它是怎么行走的呢？有一条线，他的路线可以自由选择，它是怎么走的呢？有一条线，它的颜色可以随机出现，它是怎么做到的呢？有一条线，它的行走轨迹是慢慢消失的，它是怎么做到的呢？有一条线，它的周围总是围绕着一些小的火花，它是怎么做到的呢？今天就分享给大家。
+Demo 下载地址： https://github.com/iq9891/learn-html5.git 。">
+<meta name="twitter:image" content="https://iq9891.github.io/images/h5hive.jpg">
+  
+  
+    <link rel="icon" href="//iq9891.github.io/favicon.ico">
+  
+  
+    
+  
+  <link href="//iq9891.github.io/css/style.css" rel="stylesheet" type="text/css">
+  
+
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8bf97788829b64b2e0ecdd008e5eb6b3";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- End 百度统计 -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://iq9891.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">奔跑中的前端</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-html5/h5hiveanim" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/16/html5/h5hiveanim/" class="article-date">
+  <time datetime="2017-02-16T12:02:22.000Z" itemprop="datePublished">2017-02-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Html5/">Html5</a>►<a class="article-category-link" href="/categories/Html5/canvas/">canvas</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Canvas 动画之游走在蜜蜂格
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>有一条线，它的行走路线是一个等边六边形，它是怎么行走的呢？有一条线，他的路线可以自由选择，它是怎么走的呢？有一条线，它的颜色可以随机出现，它是怎么做到的呢？有一条线，它的行走轨迹是慢慢消失的，它是怎么做到的呢？有一条线，它的周围总是围绕着一些小的火花，它是怎么做到的呢？今天就分享给大家。</p>
+<p><a href="https://github.com/iq9891/learn-html5.git" target="_blank" rel="external">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-html5.git" target="_blank" rel="external"><code>https://github.com/iq9891/learn-html5.git</code></a> 。</p>
+<p>关于 Canvas 动画之游走在蜜蜂格，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。也可以<a href="https://jsfiddle.net/iq9891/5hkejutk/" target="_blank" rel="external">在线看看</a>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( canvasanim2 )</span></div><div class="line">git <span class="built_in">clone</span> -b canvasanim2 https://github.com/iq9891/learn-html5.git</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p>下面的是效果的预览：<br><br></p>
+<p><video width="340" height="270" loop autoplay src="/images/h5hiveanim.mov"><br></video><br><br></p>
+<p>本效果思量再三，还是决定用 Canvas 来实现。因为 Canvas 可以让动画看起来很流畅，过渡起来很平滑。</p>
+<h2 id="效果中的难点"><a href="#效果中的难点" class="headerlink" title="效果中的难点"></a>效果中的难点</h2><p>1.线的路线可以慢慢的消失。</p>
+<p>  之所以用 Canvas 来实现，还有一个原因，可以解决路线慢慢消失这个小小的但却有难度的效果。可以利用 Canvas 中的 <strong>globalCompositeOperation</strong> 属性来完美实现。在动画帧数不断变化的时候，加入如下代码，可以让黑色和新生成出来的方块同时显示在当前画布上，处于叠加的效果，从而实现路线慢慢消失的效果。<br>  <figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/canvasanim2/js/hive.js" target="_blank" rel="external">hive.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.oCtx.globalCompositeOperation = <span class="string">'source-over'</span>;</div><div class="line"><span class="keyword">this</span>.oCtx.fillStyle = <span class="string">'rgba(0,0,0,0.04)'</span>;</div><div class="line"><span class="keyword">this</span>.oCtx.fillRect( <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">this</span>.iWinWidth, <span class="keyword">this</span>.iWinHeight );</div><div class="line"><span class="keyword">this</span>.oCtx.globalCompositeOperation = <span class="string">'lighter'</span>;</div></pre></td></tr></table></figure></p>
+<p>2.线的行走看起来像是在沿着蜂房的骨架边缘</p>
+<p>不知道大家是否看过蜜蜂的蜂房是什么形状的。我从网上找了张蜂房的类似图片，希望能更好的展现线的行走路线。</p>
+<p><img src="/images/h5hive.jpg" alt="蜜蜂的蜂房"></p>
+<p>从上图来看，每只小蜜蜂的房间特别像个等边六边形。那么我怎么才能让我的线按着等边六边形来走呢？其实还算很简单的。只要大家对儿时学过的三角函数就可以解决上面的问题。</p>
+<p>首先定义一个时间变量( iTime )，用于检测本次路线走的时间，这就是我们已知的一个常量，也是六边形每条边的边长。等边六边形每个角度都是固定的，那就是120度，用 <code>Math.sin</code> 和 <code>Math.cos</code> 来计算每个路线的 x 和 y 坐标即可。</p>
+<p>3.线的路线随机可选</p>
+<p>首先把每条线可能走的方向先在小本本上都画好。先从起点开始画，对于起点来说可以有六种可能，分别是<strong>右下 -&gt; 左上</strong>、<strong>右下 &lt;- 左上</strong>、<strong>右上 -&gt; 左下</strong>、<strong>右上 &lt;- 左下</strong>、<strong>右上 -&gt; 左下</strong>和<strong>右上 &lt;- 左下</strong>。把他们横纵的弧度都存起来。每种路线走完之后就有两种可能了，再把这两种可能都和每个路线存在一起。</p>
+<p>4.线的颜色可以随机出来</p>
+<p>颜色选用 hsl( 色调、饱和度、亮度 )。这样一来只需要把色调取个随机数即可实现颜色随机的效果。有关 hsl 取色请自行查看相关资料，在这里不做详细分享。</p>
+<h2 id="涉及对象的相关方法详解"><a href="#涉及对象的相关方法详解" class="headerlink" title="涉及对象的相关方法详解"></a>涉及对象的相关方法详解</h2><p>本次效果采用 JavaScript 的面向对象的模式完成的。分为两个对象 <strong>Rect</strong> 和 <strong>Hive</strong>。下面介绍一些对象中比较值得一提的方法。其他方法有可能在其他有关动画效果中已经有过介绍，在这里就不一一介绍了。</p>
+<h3 id="Hive-对象中的-bgBlack-方法"><a href="#Hive-对象中的-bgBlack-方法" class="headerlink" title="Hive 对象中的 bgBlack 方法"></a>Hive 对象中的 bgBlack 方法</h3><p>这个方法是在页面一开始先绘制一下黑色背景。如果不绘制，线路慢慢消失的效果显示的并不是那么尽善尽美。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/canvasanim2/js/hive.js" target="_blank" rel="external">hive.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//添加背景颜色</span></div><div class="line">Hive.prototype.bgBlack = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.oCtx.fillStyle = <span class="string">'black'</span>;</div><div class="line">  <span class="keyword">this</span>.oCtx.fillRect( <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">this</span>.iWinWidth, <span class="keyword">this</span>.iWinHeight );</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="Hive-对象中的-drawframe-方法"><a href="#Hive-对象中的-drawframe-方法" class="headerlink" title="Hive 对象中的 drawframe 方法"></a>Hive 对象中的 drawframe 方法</h3><p>这个方法主要的作用就是帧动画，每次绘制一次带有透明度的背景，从而实现线路慢慢消失的效果。其次就是在少于 <strong>总线数( aLineLenth )</strong>的时候添加一个新的线。这里的关键是 <code>globalCompositeOperation</code> 属性。如果是 <code>source-over</code> ，那么在目标图像上显示源图像。如果是 <code>lighter</code> ，那么显示源图像 + 目标图像。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/canvasanim2/js/hive.js" target="_blank" rel="external">hive.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//帧事件</span></div><div class="line">Hive.prototype.drawframe = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">//添加循环帧数</span></div><div class="line">  requestAnimationFrame(<span class="keyword">this</span>.drawframe.bind(<span class="keyword">this</span>));</div><div class="line">  <span class="comment">//逐帧添加背景，让之前的方块有渐渐消失的效果</span></div><div class="line">  <span class="keyword">this</span>.oCtx.globalCompositeOperation = <span class="string">'source-over'</span>;</div><div class="line">  <span class="keyword">this</span>.oCtx.fillStyle = <span class="string">'rgba(0,0,0,0.04)'</span>;</div><div class="line">  <span class="keyword">this</span>.oCtx.fillRect( <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">this</span>.iWinWidth, <span class="keyword">this</span>.iWinHeight );</div><div class="line">  <span class="keyword">this</span>.oCtx.globalCompositeOperation = <span class="string">'lighter'</span>;</div><div class="line">  <span class="comment">//如果当前线数少于规定的总线数</span></div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.aRects.length &lt; <span class="keyword">this</span>.aLineLenth) &#123;</div><div class="line">    <span class="keyword">this</span>.aRects.push(<span class="keyword">new</span> Rect( <span class="keyword">this</span>.oCtx ));</div><div class="line">  &#125;</div><div class="line">  <span class="comment">//移动所有的方块</span></div><div class="line">  <span class="keyword">this</span>.aRects.map(<span class="function"><span class="keyword">function</span>(<span class="params"> oRect </span>)</span>&#123;</div><div class="line">    oRect.move();</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="Rect-对象中的-reset-方法"><a href="#Rect-对象中的-reset-方法" class="headerlink" title="Rect 对象中的 reset 方法"></a>Rect 对象中的 reset 方法</h3><p>这个方法主要用于重置这个方块。让他的<strong>初始坐标（ iPointX, iPointY )</strong>恢复到页面中间，并且<strong>本次移动的时间( iTime )</strong>归零。每次<strong>增加的弧度( iRadianX, iRadianY )</strong>也归零，从新开始选择。<strong>累计时间( iCumulativeTime )</strong>也是归零。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/canvasanim2/js/rect.js" target="_blank" rel="external">rect.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//重置</span></div><div class="line">Rect.prototype.reset = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//本次索引的时间</span></div><div class="line">  <span class="keyword">this</span>.iTime = <span class="keyword">this</span>.iBaseTime + <span class="number">1</span>;</div><div class="line">  <span class="comment">//累计的时间</span></div><div class="line">  <span class="keyword">this</span>.iCumulativeTime = <span class="number">0</span>;</div><div class="line">  <span class="comment">//点的起始位置 x</span></div><div class="line">  <span class="keyword">this</span>.iPointX = <span class="keyword">this</span>.iWinWidth / <span class="number">2</span>;</div><div class="line">  <span class="comment">//点的起始位置 y</span></div><div class="line">  <span class="keyword">this</span>.iPointY = <span class="keyword">this</span>.iWinHeight / <span class="number">2</span>;</div><div class="line">  <span class="comment">//点 X 位置增加的弧度，单位是度数</span></div><div class="line">  <span class="keyword">this</span>.iRadianX = <span class="number">0</span>;</div><div class="line">  <span class="comment">//点 Y 位置增加的弧度，单位是度数</span></div><div class="line">  <span class="keyword">this</span>.iRadianY = <span class="number">0</span>;</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="Rect-对象中的-move-方法"><a href="#Rect-对象中的-move-方法" class="headerlink" title="Rect 对象中的 move 方法"></a>Rect 对象中的 move 方法</h3><p>首先要增加<strong>本次移动的时间( iTime )</strong>，和<strong>累计时间( iCumulativeTime )</strong>。如果<strong>本次移动的时间( iTime )</strong>到达了<strong>本次规定的时间( iBaseTime )</strong>，那么<strong>本次移动的时间( iTime )</strong>归零，更新<strong>增加的弧度( iRadianX, iRadianY )</strong>并且在<strong>下一个路线的索引( aNextIndex )</strong>中随机选择一个。</p>
+<p>接下来就是利用 <code>Math.sin</code> 和 <code>Math.cos</code> 累加相应的坐标了。坐标更新好了，改变在初始化生成好的颜色，之后画上去。20%的几率上面可以画上小星星。</p>
+<p>最后如果这条线存在的<strong>累计时间( iCumulativeTime )</strong>超过了<strong>规定的总时间( iAllTime )</strong>，那么就让它<strong>重置 ( reset )</strong>。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/canvasanim2/js/rect.js" target="_blank" rel="external">rect.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//移动</span></div><div class="line">Rect.prototype.move = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//本次索引的时间</span></div><div class="line">  <span class="keyword">this</span>.iTime++;</div><div class="line">  <span class="comment">//累计时间</span></div><div class="line">  <span class="keyword">this</span>.iCumulativeTime++;</div><div class="line">  <span class="comment">//如果到一定时间了，更换下一个弧度</span></div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.iTime &gt; <span class="keyword">this</span>.iBaseTime) &#123;</div><div class="line">    <span class="comment">//重置本次的时间</span></div><div class="line">    <span class="keyword">this</span>.iTime = <span class="number">0</span>;</div><div class="line">    <span class="comment">//获取当前索引的各种弧度</span></div><div class="line">    <span class="keyword">this</span>.iRadianX = <span class="keyword">this</span>.aPath[<span class="keyword">this</span>.iIndex].iX;</div><div class="line">    <span class="keyword">this</span>.iRadianY = <span class="keyword">this</span>.aPath[<span class="keyword">this</span>.iIndex].iY;</div><div class="line">    <span class="comment">//把索引调到下一个</span></div><div class="line">    <span class="keyword">this</span>.iIndex = <span class="keyword">this</span>.aPath[<span class="keyword">this</span>.iIndex].aNextIndex[<span class="keyword">this</span>.rd(<span class="number">0</span>,<span class="number">1</span>)];</div><div class="line">  &#125;</div><div class="line">  <span class="comment">//更新方块的坐标</span></div><div class="line">  <span class="keyword">this</span>.iPointX += <span class="built_in">Math</span>.cos(<span class="keyword">this</span>.iRadianX);</div><div class="line">  <span class="keyword">this</span>.iPointY += <span class="built_in">Math</span>.sin(<span class="keyword">this</span>.iRadianY);</div><div class="line">  <span class="comment">//改变颜色</span></div><div class="line">  <span class="keyword">this</span>.oCtx.fillStyle = <span class="keyword">this</span>.color;</div><div class="line">  <span class="comment">//添加方块</span></div><div class="line">  <span class="keyword">this</span>.oCtx.fillRect( <span class="keyword">this</span>.iPointX, <span class="keyword">this</span>.iPointY, <span class="keyword">this</span>.iPointSize, <span class="keyword">this</span>.iPointSize );</div><div class="line">  <span class="comment">//线边上的点，20%的几率</span></div><div class="line">  <span class="keyword">if</span>( <span class="built_in">Math</span>.random() &lt; <span class="keyword">this</span>.sparkChance )&#123;</div><div class="line">    <span class="keyword">this</span>.oCtx.fillRect( <span class="keyword">this</span>.iPointX + <span class="keyword">this</span>.rd(-<span class="keyword">this</span>.iSparkDist, <span class="keyword">this</span>.iSparkDist), <span class="keyword">this</span>.iPointY + <span class="keyword">this</span>.rd(-<span class="keyword">this</span>.iSparkDist, <span class="keyword">this</span>.iSparkDist), <span class="keyword">this</span>.iSparkSize, <span class="keyword">this</span>.iSparkSize );</div><div class="line">  &#125;</div><div class="line">  <span class="comment">//如果累计时间超过规定的总时间</span></div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.iCumulativeTime &gt; <span class="keyword">this</span>.iAllTime) &#123;</div><div class="line">    <span class="keyword">this</span>.reset();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;; <span class="comment">// end move</span></div></pre></td></tr></table></figure>
+<h2 id="本效果的兼容性"><a href="#本效果的兼容性" class="headerlink" title="本效果的兼容性"></a>本效果的兼容性</h2><ol>
+<li>IE &gt; 9</li>
+<li>火狐</li>
+<li>谷歌</li>
+<li>欧朋</li>
+<li>安卓 &gt; 4</li>
+<li>iOS &gt; 8</li>
+</ol>
+<p>Canvas 动画之游走在蜜蜂格已经为大家介绍完了，有兴趣可以<a href="https://jsfiddle.net/iq9891/5hkejutk/" target="_blank" rel="external">小玩小试</a>一下，也可以去 <a href="https://github.com/iq9891/learn-html5.git" target="_blank" rel="external">Github</a> 上下代码。如果你对 Html5 就此产生了浓厚的兴趣，那么还请翻看本博客其他关于 <a href="/categories/Html5/">Html5 的文章</a>。</p>
+
+        <hr style="margin: 1.6em 0;">
+        <p>转载请注明出处：<a href="/2017/02/16/html5/h5hiveanim/">https://iq9891.github.io/2017/02/16/html5/h5hiveanim/</a></p>
+        <p>本文可全文转载，但需得到原作者书面许可，同时保留原作者和出处，摘要引流则随意。</p>
+        <p>如有任何建议或疑问，欢迎留言讨论。</p>
+        <p>如果觉得文章不错的话，欢迎点一下分享。</p>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="https://iq9891.github.io/2017/02/16/html5/h5hiveanim/" data-id="cizfl4omb0004xi95ur4bcfg9" class="article-share-link">Share</a> -->
+      <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
+        <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址" style="margin: 2px 4px;"></a>
+      </div>
+      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      <!-- 
+        <a href="https://iq9891.github.io/2017/02/16/html5/h5hiveanim/#ds-thread" class="article-comment-link">Comments</a>
+      
+       -->
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Html5/">Html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/效果/">效果</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/21/js/recursion/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          获取数组中的值
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/14/html5/h5canvasanim1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Canvas 动画之水波纹动画 2D 版</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+      <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/02/16/html5/h5hiveanim/" data-title="Canvas 动画之游走在蜜蜂格" data-url="https://iq9891.github.io/2017/02/16/html5/h5hiveanim/"></div>
+	<!-- 多说评论框 end -->
+</div>
+
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">Content</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#效果预览"><span class="toc-number">1.</span> <span class="toc-text">效果预览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#效果中的难点"><span class="toc-number">2.</span> <span class="toc-text">效果中的难点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#涉及对象的相关方法详解"><span class="toc-number">3.</span> <span class="toc-text">涉及对象的相关方法详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hive-对象中的-bgBlack-方法"><span class="toc-number">3.1.</span> <span class="toc-text">Hive 对象中的 bgBlack 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hive-对象中的-drawframe-方法"><span class="toc-number">3.2.</span> <span class="toc-text">Hive 对象中的 drawframe 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rect-对象中的-reset-方法"><span class="toc-number">3.3.</span> <span class="toc-text">Rect 对象中的 reset 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rect-对象中的-move-方法"><span class="toc-number">3.4.</span> <span class="toc-text">Rect 对象中的 move 方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本效果的兼容性"><span class="toc-number">4.</span> <span class="toc-text">本效果的兼容性</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+
+  
+    
+
+  
+    
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2017 <a href="https://github.com/iq9891" target="_blank">李梦龙</a>
+    </div>
+     <div id="footer-right">
+      Contact&nbsp;|&nbsp;649076408@qq.com
+    </div>
+  </div>
+</footer>
+<script src="//iq9891.github.io/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="//iq9891.github.io/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+
+    
+
+
+    	<script type="text/javascript">
+        var duoshuoQuery = {short_name:"true"};
+      </script>
+      <script src="//iq9891.github.io/duoshuo/embed.js"></script>
+
+
+<script src="//iq9891.github.io/js/is.js"></script>
+
+
+  <link href="//iq9891.github.io/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css">
+  <script src="//iq9891.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="//iq9891.github.io/js/script.js"></script>
+<script src="//iq9891.github.io/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

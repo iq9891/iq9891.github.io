@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Canvas 动画之水波纹动画 2D 版 | 奔跑中的前端</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="很久以前，在玩捕鱼达人的时候，突然发现开场的水波纹效果非常炫酷，但是人家是 3D 的，我这个是 2D 的。不过没关系，好歹效果出来了，今天就分享给大家。
+Demo 下载地址： https://github.com/iq9891/learn-html5.git 。
+关于 Canvas 动画之水波纹动画 2D 版，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。也可以在线看看。
+1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Canvas 动画之水波纹动画 2D 版">
+<meta property="og:url" content="https://iq9891.github.io/2017/02/14/html5/h5canvasanim1/index.html">
+<meta property="og:site_name" content="奔跑中的前端">
+<meta property="og:description" content="很久以前，在玩捕鱼达人的时候，突然发现开场的水波纹效果非常炫酷，但是人家是 3D 的，我这个是 2D 的。不过没关系，好歹效果出来了，今天就分享给大家。
+Demo 下载地址： https://github.com/iq9891/learn-html5.git 。
+关于 Canvas 动画之水波纹动画 2D 版，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。也可以在线看看。
+1">
+<meta property="og:updated_time" content="2017-02-21T13:46:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Canvas 动画之水波纹动画 2D 版">
+<meta name="twitter:description" content="很久以前，在玩捕鱼达人的时候，突然发现开场的水波纹效果非常炫酷，但是人家是 3D 的，我这个是 2D 的。不过没关系，好歹效果出来了，今天就分享给大家。
+Demo 下载地址： https://github.com/iq9891/learn-html5.git 。
+关于 Canvas 动画之水波纹动画 2D 版，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。也可以在线看看。
+1">
+  
+  
+    <link rel="icon" href="//iq9891.github.io/favicon.ico">
+  
+  
+    
+  
+  <link href="//iq9891.github.io/css/style.css" rel="stylesheet" type="text/css">
+  
+
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8bf97788829b64b2e0ecdd008e5eb6b3";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- End 百度统计 -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://iq9891.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">奔跑中的前端</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-html5/h5canvasanim1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/14/html5/h5canvasanim1/" class="article-date">
+  <time datetime="2017-02-14T09:30:26.000Z" itemprop="datePublished">2017-02-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Html5/">Html5</a>►<a class="article-category-link" href="/categories/Html5/canvas/">canvas</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Canvas 动画之水波纹动画 2D 版
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>很久以前，在玩捕鱼达人的时候，突然发现开场的<a href="https://jsfiddle.net/iq9891/j0fkhrc3/" target="_blank" rel="external">水波纹效果</a>非常炫酷，但是人家是 3D 的，我这个是 2D 的。不过没关系，好歹<a href="https://jsfiddle.net/iq9891/j0fkhrc3/" target="_blank" rel="external">效果</a>出来了，今天就分享给大家。</p>
+<p><a href="https://github.com/iq9891/learn-html5.git" target="_blank" rel="external">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-html5.git" target="_blank" rel="external"><code>https://github.com/iq9891/learn-html5.git</code></a> 。</p>
+<p>关于 Canvas 动画之水波纹动画 2D 版，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。也可以<a href="https://jsfiddle.net/iq9891/j0fkhrc3/" target="_blank" rel="external">在线看看</a>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( canvasanim1 )</span></div><div class="line">git <span class="built_in">clone</span> -b canvasanim1 https://github.com/iq9891/learn-html5.git</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p>下面的是效果的预览：<br><br></p>
+<p><video width="340" height="270" loop autoplay src="/images/h5canvasanim1.mov"><br></video><br><br></p>
+<p>本效果思量再三，还是决定用 Canvas 来实现。所以在 Html 文件中必须有一个 <code>canvas</code> 标签。因为效果是充满整个浏览器的，所以需要把默认样式清一下，也就写在 Css 中了。 Html 和 Css 中的东西就不在这里讲了，有兴趣不明白的大家可以自己 Google 一下。本文主要讲一下 JavaScript 中的几个方法，及波浪的原理。</p>
+<h2 id="Water-对象中的-initVar-方法"><a href="#Water-对象中的-initVar-方法" class="headerlink" title="Water 对象中的 initVar 方法"></a>Water 对象中的 initVar 方法</h2><p>这个方法是声明一些所需的变量。之所以这么写，是因为让整个 JavaScript 的结构看起来更加清晰。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/canvasanim1/js/water.js" target="_blank" rel="external">water.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//声明参数</span></div><div class="line">Water.prototype.initVar = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.oCanvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</div><div class="line">  <span class="keyword">this</span>.oCtx = <span class="keyword">this</span>.oCanvas.getContext(<span class="string">'2d'</span>);</div><div class="line">  <span class="keyword">this</span>.iWinWidth = <span class="built_in">window</span>.innerWidth;</div><div class="line">  <span class="keyword">this</span>.iWinHeight = <span class="built_in">window</span>.innerHeight;</div><div class="line">  <span class="keyword">this</span>.sColor = <span class="string">"#6ca0f6"</span>; <span class="comment">//海水颜色</span></div><div class="line">  <span class="keyword">this</span>.aVertexes = []; <span class="comment">//顶点坐标</span></div><div class="line">  <span class="keyword">this</span>.iVerNum = <span class="number">1000</span>; <span class="comment">//顶点数 定点数越多，水平面过渡越平滑</span></div><div class="line">  <span class="keyword">this</span>.iInitialDiff = <span class="keyword">this</span>.iVerNum * <span class="number">3</span>; <span class="comment">//初始差分值</span></div><div class="line">  <span class="keyword">this</span>.iStartingPoint = <span class="keyword">this</span>.iVerNum / <span class="number">2</span>; <span class="comment">//震荡点</span></div><div class="line">  <span class="keyword">this</span>.iBuffer = <span class="number">15</span>; <span class="comment">//缓冲 数字太小中间会有不流畅的过渡</span></div><div class="line">  <span class="keyword">this</span>.iFriction = <span class="number">0.15</span>; <span class="comment">//摩擦力</span></div><div class="line">  <span class="keyword">this</span>.iDeceleration = <span class="number">0.95</span>; <span class="comment">//减速</span></div><div class="line">  <span class="keyword">this</span>.oAnimationFrame = <span class="literal">null</span>; <span class="comment">//帧数变化的名字</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="Water-对象中的-initVertex-方法"><a href="#Water-对象中的-initVertex-方法" class="headerlink" title="Water 对象中的 initVertex 方法"></a>Water 对象中的 initVertex 方法</h2><p>这个方法的作用是生成所有顶点，其中不仅有顶点的坐标( x | y )、速度( vy )和差分值( diffPt )。在绘制顶点的时候，根据顶点的坐标( x | y )来确定顶点的位置。每次波纹震荡，起震点( iStartingPoint )的差分值( diffPt )都会变化。除起震点( iStartingPoint )的其他点根据差分值( diffPt )来判断位置。速度( vy )用于计算顶点的纵坐标( y )。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/canvasanim1/js/water.js" target="_blank" rel="external">water.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//生成顶点，初始差分值</span></div><div class="line">Water.prototype.initVertex = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt; <span class="keyword">this</span>.iVerNum; i++)&#123;</div><div class="line">		<span class="keyword">this</span>.aVertexes[i] = &#123;</div><div class="line">    	<span class="attr">x</span>: <span class="keyword">this</span>.iWinWidth / (<span class="keyword">this</span>.iVerNum<span class="number">-1</span>) * i, <span class="comment">// 点的坐标</span></div><div class="line">    	y: <span class="keyword">this</span>.iWinHeight/<span class="number">2</span>,</div><div class="line">    	<span class="attr">vy</span>: <span class="number">0</span>, <span class="comment">//竖直方向的速度</span></div><div class="line">      <span class="comment">//如果是起震点，就初始差分值</span></div><div class="line">      diffPt: i === <span class="keyword">this</span>.iStartingPoint ? <span class="keyword">this</span>.iInitialDiff : <span class="number">0</span>  <span class="comment">//初始差分值</span></div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="Water-对象中的-setCanvas-方法"><a href="#Water-对象中的-setCanvas-方法" class="headerlink" title="Water 对象中的 setCanvas 方法"></a>Water 对象中的 setCanvas 方法</h2><p>这个方法是让整个 canvas 充满整个浏览器窗口。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/canvasanim1/js/water.js" target="_blank" rel="external">water.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置 canvas 的宽高</span></div><div class="line">Water.prototype.setCanvas = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.oCanvas.width = <span class="keyword">this</span>.iWinWidth;</div><div class="line">  <span class="keyword">this</span>.oCanvas.height = <span class="keyword">this</span>.iWinHeight;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="Water-对象中的-drawWater-方法"><a href="#Water-对象中的-drawWater-方法" class="headerlink" title="Water 对象中的 drawWater 方法"></a>Water 对象中的 drawWater 方法</h2><p>这个方法主要是绘制水平面的方法，值得提一句的是在这里绘画的顶点是循环之前生成的 <code>this.aVertexes</code> 数组中的数据而绘制的。绘制的原理是先绘制顶点到浏览器窗口底部的线，然后绘制右边最后一点到整个浏览器窗口最底部的线，最后画个从浏览器右下角到左下角的线。线和顶点画好之后再填充颜色。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/canvasanim1/js/water.js" target="_blank" rel="external">water.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//设置 canvas 的水</span></div><div class="line">Water.prototype.drawWater = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//清空子路径列表开始一个新路径的方法。</span></div><div class="line">  <span class="keyword">this</span>.oCtx.beginPath();</div><div class="line">  <span class="comment">//画水</span></div><div class="line">  <span class="keyword">this</span>.aVertexes.map(<span class="function"><span class="keyword">function</span> (<span class="params">oVertex, oVertexId</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.oCtx.lineTo(oVertex.x, oVertex.y);</div><div class="line">  &#125;.bind(<span class="keyword">this</span>));</div><div class="line">  <span class="comment">//从顶点的最后一个点，向( this.iWinWidth, this.iWinHeight )点画线</span></div><div class="line">  <span class="keyword">this</span>.oCtx.lineTo(<span class="keyword">this</span>.iWinWidth, <span class="keyword">this</span>.iWinHeight);</div><div class="line">  <span class="comment">//从( this.iWinWidth, this.iWinHeight )点，向( 0, this.iWinHeight )点画线</span></div><div class="line">  <span class="keyword">this</span>.oCtx.lineTo(<span class="number">0</span>, <span class="keyword">this</span>.iWinHeight);</div><div class="line">  <span class="comment">//设置颜色</span></div><div class="line">  <span class="keyword">this</span>.oCtx.fillStyle = <span class="keyword">this</span>.sColor;</div><div class="line">  <span class="comment">//填充</span></div><div class="line">  <span class="keyword">this</span>.oCtx.fill();</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="Water-对象中的-update-方法"><a href="#Water-对象中的-update-方法" class="headerlink" title="Water 对象中的 update 方法"></a>Water 对象中的 update 方法</h2><p>这个方法是更新顶点位置的方法。通过震荡点( this.iStartingPoint )的差分值( diffPt )不断变化不断减小，并且循环顶点数组( this.aVertexes )。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/canvasanim1/js/water.js" target="_blank" rel="external">water.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//顶点更新</span></div><div class="line">Water.prototype.update = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">this</span>.aVertexes[<span class="keyword">this</span>.iStartingPoint].diffPt -= <span class="keyword">this</span>.aVertexes[<span class="keyword">this</span>.iStartingPoint].diffPt * <span class="keyword">this</span>.iDeceleration;</div><div class="line">  <span class="comment">//更新Y坐标</span></div><div class="line">  <span class="keyword">this</span>.aVertexes.map(<span class="keyword">this</span>.updatePostion.bind(<span class="keyword">this</span>));</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="Water-对象中的-updatePostion-方法"><a href="#Water-对象中的-updatePostion-方法" class="headerlink" title="Water 对象中的 updatePostion 方法"></a>Water 对象中的 updatePostion 方法</h2><p>这个方法是更新所有顶点的位置。</p>
+<p>更新差分值：<strong>起震点开始左边顶点的差分值是当前的差分值 - 两个顶点差分值的差 * 比例。索引不得大于缓冲( this.iBuffer )。起震点开始右边顶点的差分值等于起震点开始左边顶点的差分值。</strong></p>
+<p>更新速度：<strong>首先当前速度 + 差分值 + 浏览器窗口的二分之一 - 当前纵坐标( y )。更新之后再乘以减速的比例( this.iDeceleration )。</strong>之所以乘以减速的比例( this.iDeceleration )，是因为达到减速的目的，最后停下来。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/canvasanim1/js/water.js" target="_blank" rel="external">water.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//更新顶点坐标</span></div><div class="line">Water.prototype.updatePostion = <span class="function"><span class="keyword">function</span> (<span class="params">oVertex, oVertexId</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (oVertexId &lt; <span class="keyword">this</span>.iStartingPoint) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> iLeftIndex = <span class="keyword">this</span>.iStartingPoint - oVertexId - <span class="number">1</span>;</div><div class="line">    <span class="keyword">var</span> iRightIndex = <span class="keyword">this</span>.iStartingPoint + oVertexId + <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.aVertexes[iLeftIndex].diffPt -= ( <span class="keyword">this</span>.aVertexes[iLeftIndex].diffPt - <span class="keyword">this</span>.aVertexes[iLeftIndex + <span class="number">1</span>].diffPt ) * (<span class="number">1</span> - <span class="number">0.01</span> * (oVertexId &gt; <span class="keyword">this</span>.iBuffer ? <span class="keyword">this</span>.iBuffer : oVertexId ));</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (iRightIndex &lt; <span class="keyword">this</span>.aVertexes.length) &#123;</div><div class="line">      <span class="comment">//右边的 = 左边的</span></div><div class="line">      <span class="keyword">this</span>.aVertexes[iRightIndex].diffPt = <span class="keyword">this</span>.aVertexes[iLeftIndex].diffPt;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  oVertex.vy += oVertex.diffPt + <span class="keyword">this</span>.iWinHeight / <span class="number">2</span> - oVertex.y;</div><div class="line">  oVertex.vy *= <span class="keyword">this</span>.iDeceleration;</div><div class="line">  oVertex.y += oVertex.vy * <span class="keyword">this</span>.iFriction;</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="Water-对象中的-drawframe-方法"><a href="#Water-对象中的-drawframe-方法" class="headerlink" title="Water 对象中的 drawframe 方法"></a>Water 对象中的 drawframe 方法</h2><p>这个方法是执行动画。首先先清空给 canvas 内的所有像素。其次更新顶点坐标，然后绘制水平面。最后根据起震点( this.iStartingPoint )的速度( vy )来判断是否继续动画。</p>
+<figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/canvasanim1/js/water.js" target="_blank" rel="external">water.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//动画</span></div><div class="line">Water.prototype.drawframe = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">//更新坐标点</span></div><div class="line">  <span class="keyword">this</span>.oCtx.clearRect(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">this</span>.iWinWidth, <span class="keyword">this</span>.iWinHeight);</div><div class="line">  <span class="keyword">this</span>.update();</div><div class="line">  <span class="keyword">this</span>.drawWater();</div><div class="line">  <span class="comment">//如果速度为0了就停止动画</span></div><div class="line">  <span class="keyword">if</span> (<span class="built_in">Math</span>.abs(<span class="keyword">this</span>.aVertexes[<span class="keyword">this</span>.iStartingPoint].vy).toFixed(<span class="number">3</span>) &lt; <span class="number">0.01</span>) &#123;</div><div class="line">    <span class="comment">//取消</span></div><div class="line">    cancelAnimationFrame(<span class="keyword">this</span>.oAnimationFrame);</div><div class="line">    <span class="keyword">this</span>.oAnimationFrame = <span class="literal">null</span>;</div><div class="line">  &#125;<span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">//添加循环帧数</span></div><div class="line">    <span class="keyword">this</span>.oAnimationFrame = requestAnimationFrame(<span class="keyword">this</span>.drawframe.bind(<span class="keyword">this</span>));</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="Html-文件"><a href="#Html-文件" class="headerlink" title="Html 文件"></a>Html 文件</h2><figure class="highlight html"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/canvasanim1/water.html" target="_blank" rel="external">water.html</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Canvas 动画之水波纹动画 2D 版<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 引用清除默认样式的 Css 文件 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/water.css"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 创建 canvas 标签 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 引用脚本 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/water.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="Css-文件"><a href="#Css-文件" class="headerlink" title="Css 文件"></a>Css 文件</h2><figure class="highlight css"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/canvasanim1/css/water.css" target="_blank" rel="external">water.css</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="JavaScript-文件"><a href="#JavaScript-文件" class="headerlink" title="JavaScript 文件"></a>JavaScript 文件</h2><figure class="highlight js"><figcaption><span> </span><a href="https://github.com/iq9891/learn-html5/blob/canvasanim1/js/water.js" target="_blank" rel="external">water.js</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Water</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//声明参数</span></div><div class="line">  <span class="keyword">this</span>.initVar();</div><div class="line">  <span class="comment">//生成顶点，初始差分值</span></div><div class="line">  <span class="keyword">this</span>.initVertex();</div><div class="line">  <span class="comment">//设置 canvas 的宽高</span></div><div class="line">  <span class="keyword">this</span>.setCanvas();</div><div class="line">  <span class="comment">//设置 canvas 的水</span></div><div class="line">  <span class="keyword">this</span>.drawWater();</div><div class="line">  <span class="comment">//动画</span></div><div class="line">  <span class="keyword">this</span>.drawframe();</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="comment">//声明参数</span></div><div class="line">Water.prototype.initVar = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.oCanvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</div><div class="line">  <span class="keyword">this</span>.oCtx = <span class="keyword">this</span>.oCanvas.getContext(<span class="string">'2d'</span>);</div><div class="line">  <span class="keyword">this</span>.iWinWidth = <span class="built_in">window</span>.innerWidth;</div><div class="line">  <span class="keyword">this</span>.iWinHeight = <span class="built_in">window</span>.innerHeight;</div><div class="line">  <span class="keyword">this</span>.sColor = <span class="string">"#6ca0f6"</span>; <span class="comment">//海水颜色</span></div><div class="line">  <span class="keyword">this</span>.aVertexes = []; <span class="comment">//顶点坐标</span></div><div class="line">  <span class="keyword">this</span>.iVerNum = <span class="number">1000</span>; <span class="comment">//顶点数 定点数越多，水平面过渡越平滑</span></div><div class="line">  <span class="keyword">this</span>.iInitialDiff = <span class="keyword">this</span>.iVerNum * <span class="number">3</span>; <span class="comment">//初始差分值</span></div><div class="line">  <span class="keyword">this</span>.iStartingPoint = <span class="keyword">this</span>.iVerNum / <span class="number">2</span>; <span class="comment">//震荡点</span></div><div class="line">  <span class="keyword">this</span>.iBuffer = <span class="number">15</span>; <span class="comment">//缓冲 数字太小中间会有不流畅的过渡</span></div><div class="line">  <span class="keyword">this</span>.iFriction = <span class="number">0.15</span>; <span class="comment">//摩擦力</span></div><div class="line">  <span class="keyword">this</span>.iDeceleration = <span class="number">0.95</span>; <span class="comment">//减速</span></div><div class="line">  <span class="keyword">this</span>.oAnimationFrame = <span class="literal">null</span>; <span class="comment">//帧数变化的名字</span></div><div class="line">&#125;;</div><div class="line"><span class="comment">//设置 canvas 的宽高</span></div><div class="line">Water.prototype.setCanvas = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.oCanvas.width = <span class="keyword">this</span>.iWinWidth;</div><div class="line">  <span class="keyword">this</span>.oCanvas.height = <span class="keyword">this</span>.iWinHeight;</div><div class="line">&#125;;</div><div class="line"><span class="comment">//生成顶点，初始差分值</span></div><div class="line">Water.prototype.initVertex = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt; <span class="keyword">this</span>.iVerNum; i++)&#123;</div><div class="line">		<span class="keyword">this</span>.aVertexes[i] = &#123;</div><div class="line">    	<span class="attr">x</span>: <span class="keyword">this</span>.iWinWidth / (<span class="keyword">this</span>.iVerNum<span class="number">-1</span>) * i, <span class="comment">// 点的坐标</span></div><div class="line">    	y: <span class="keyword">this</span>.iWinHeight/<span class="number">2</span>,</div><div class="line">    	<span class="attr">vy</span>: <span class="number">0</span>, <span class="comment">//竖直方向的速度</span></div><div class="line">      <span class="comment">//如果是起震点，就初始差分值</span></div><div class="line">      diffPt: i === <span class="keyword">this</span>.iStartingPoint ? <span class="keyword">this</span>.iInitialDiff : <span class="number">0</span>  <span class="comment">//初始差分值</span></div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"><span class="comment">//设置 canvas 的水</span></div><div class="line">Water.prototype.drawWater = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//清空子路径列表开始一个新路径的方法。</span></div><div class="line">  <span class="keyword">this</span>.oCtx.beginPath();</div><div class="line">  <span class="comment">//画水</span></div><div class="line">  <span class="keyword">this</span>.aVertexes.map(<span class="function"><span class="keyword">function</span> (<span class="params">oVertex, oVertexId</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.oCtx.lineTo(oVertex.x, oVertex.y);</div><div class="line">  &#125;.bind(<span class="keyword">this</span>));</div><div class="line">  <span class="comment">//从顶点的最后一个点，向( this.iWinWidth, this.iWinHeight )点画线</span></div><div class="line">  <span class="keyword">this</span>.oCtx.lineTo(<span class="keyword">this</span>.iWinWidth, <span class="keyword">this</span>.iWinHeight);</div><div class="line">  <span class="comment">//从( this.iWinWidth, this.iWinHeight )点，向( 0, this.iWinHeight )点画线</span></div><div class="line">  <span class="keyword">this</span>.oCtx.lineTo(<span class="number">0</span>, <span class="keyword">this</span>.iWinHeight);</div><div class="line">  <span class="comment">//设置颜色</span></div><div class="line">  <span class="keyword">this</span>.oCtx.fillStyle = <span class="keyword">this</span>.sColor;</div><div class="line">  <span class="comment">//填充</span></div><div class="line">  <span class="keyword">this</span>.oCtx.fill();</div><div class="line"></div><div class="line">&#125;;</div><div class="line"><span class="comment">//顶点更新</span></div><div class="line">Water.prototype.update = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">this</span>.aVertexes[<span class="keyword">this</span>.iStartingPoint].diffPt -= <span class="keyword">this</span>.aVertexes[<span class="keyword">this</span>.iStartingPoint].diffPt * <span class="keyword">this</span>.iDeceleration;</div><div class="line">  <span class="comment">//更新Y坐标</span></div><div class="line">  <span class="keyword">this</span>.aVertexes.map(<span class="keyword">this</span>.updatePostion.bind(<span class="keyword">this</span>));</div><div class="line"></div><div class="line">&#125;;</div><div class="line"><span class="comment">//更新顶点坐标</span></div><div class="line">Water.prototype.updatePostion = <span class="function"><span class="keyword">function</span> (<span class="params">oVertex, oVertexId</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (oVertexId &lt; <span class="keyword">this</span>.iStartingPoint) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> iLeftIndex = <span class="keyword">this</span>.iStartingPoint - oVertexId - <span class="number">1</span>;</div><div class="line">    <span class="keyword">var</span> iRightIndex = <span class="keyword">this</span>.iStartingPoint + oVertexId + <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.aVertexes[iLeftIndex].diffPt -= ( <span class="keyword">this</span>.aVertexes[iLeftIndex].diffPt - <span class="keyword">this</span>.aVertexes[iLeftIndex + <span class="number">1</span>].diffPt ) * (<span class="number">1</span> - <span class="number">0.01</span> * (oVertexId &gt; <span class="keyword">this</span>.iBuffer ? <span class="keyword">this</span>.iBuffer : oVertexId ));</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (iRightIndex &lt; <span class="keyword">this</span>.aVertexes.length) &#123;</div><div class="line">      <span class="comment">//右边的 = 左边的</span></div><div class="line">      <span class="keyword">this</span>.aVertexes[iRightIndex].diffPt = <span class="keyword">this</span>.aVertexes[iLeftIndex].diffPt;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  oVertex.vy += oVertex.diffPt + <span class="keyword">this</span>.iWinHeight / <span class="number">2</span> - oVertex.y;</div><div class="line">  oVertex.vy *= <span class="keyword">this</span>.iDeceleration;</div><div class="line">  oVertex.y += oVertex.vy * <span class="keyword">this</span>.iFriction;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"><span class="comment">//动画</span></div><div class="line">Water.prototype.drawframe = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">//更新坐标点</span></div><div class="line">  <span class="keyword">this</span>.oCtx.clearRect(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">this</span>.iWinWidth, <span class="keyword">this</span>.iWinHeight);</div><div class="line">  <span class="keyword">this</span>.update();</div><div class="line">  <span class="keyword">this</span>.drawWater();</div><div class="line">  <span class="comment">//如果速度为0了就停止动画</span></div><div class="line">  <span class="keyword">if</span> (<span class="built_in">Math</span>.abs(<span class="keyword">this</span>.aVertexes[<span class="keyword">this</span>.iStartingPoint].vy).toFixed(<span class="number">3</span>) &lt; <span class="number">0.01</span>) &#123;</div><div class="line">    <span class="comment">//取消</span></div><div class="line">    cancelAnimationFrame(<span class="keyword">this</span>.oAnimationFrame);</div><div class="line">    <span class="keyword">this</span>.oAnimationFrame = <span class="literal">null</span>;</div><div class="line">  &#125;<span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">//添加循环帧数</span></div><div class="line">    <span class="keyword">this</span>.oAnimationFrame = requestAnimationFrame(<span class="keyword">this</span>.drawframe.bind(<span class="keyword">this</span>));</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//程序的初始化</span></div><div class="line"><span class="keyword">new</span> Water();</div></pre></td></tr></table></figure>
+<h2 id="本效果的兼容性"><a href="#本效果的兼容性" class="headerlink" title="本效果的兼容性"></a>本效果的兼容性</h2><ol>
+<li>IE &gt; 9</li>
+<li>火狐</li>
+<li>谷歌</li>
+<li>欧朋</li>
+<li>安卓 &gt; 4</li>
+<li>iOS &gt; 8</li>
+</ol>
+<p>Canvas 动画之水波纹动画 2D 版已经为大家介绍完了，有兴趣可以<a href="https://jsfiddle.net/iq9891/j0fkhrc3/" target="_blank" rel="external">小玩小试</a>一下，也可以去 <a href="https://github.com/iq9891/learn-html5.git" target="_blank" rel="external">Github</a> 上下代码。如果你对 Html5 就此产生了浓厚的兴趣，那么还请翻看本博客其他关于 <a href="/categories/Html5/">Html5 的文章</a>。</p>
+
+        <hr style="margin: 1.6em 0;">
+        <p>转载请注明出处：<a href="/2017/02/14/html5/h5canvasanim1/">https://iq9891.github.io/2017/02/14/html5/h5canvasanim1/</a></p>
+        <p>本文可全文转载，但需得到原作者书面许可，同时保留原作者和出处，摘要引流则随意。</p>
+        <p>如有任何建议或疑问，欢迎留言讨论。</p>
+        <p>如果觉得文章不错的话，欢迎点一下分享。</p>
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="https://iq9891.github.io/2017/02/14/html5/h5canvasanim1/" data-id="cizfl4om40001xi95wrpw52pt" class="article-share-link">Share</a> -->
+      <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
+        <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博" style="margin: 2px 4px;"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址" style="margin: 2px 4px;"></a>
+      </div>
+      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      <!-- 
+        <a href="https://iq9891.github.io/2017/02/14/html5/h5canvasanim1/#ds-thread" class="article-comment-link">Comments</a>
+      
+       -->
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Html5/">Html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/效果/">效果</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/16/html5/h5hiveanim/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Canvas 动画之游走在蜜蜂格
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/14/html5/h5audio/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">html5 中的音频</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+      <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2017/02/14/html5/h5canvasanim1/" data-title="Canvas 动画之水波纹动画 2D 版" data-url="https://iq9891.github.io/2017/02/14/html5/h5canvasanim1/"></div>
+	<!-- 多说评论框 end -->
+</div>
+
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">Content</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#效果预览"><span class="toc-number">1.</span> <span class="toc-text">效果预览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Water-对象中的-initVar-方法"><span class="toc-number">2.</span> <span class="toc-text">Water 对象中的 initVar 方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Water-对象中的-initVertex-方法"><span class="toc-number">3.</span> <span class="toc-text">Water 对象中的 initVertex 方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Water-对象中的-setCanvas-方法"><span class="toc-number">4.</span> <span class="toc-text">Water 对象中的 setCanvas 方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Water-对象中的-drawWater-方法"><span class="toc-number">5.</span> <span class="toc-text">Water 对象中的 drawWater 方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Water-对象中的-update-方法"><span class="toc-number">6.</span> <span class="toc-text">Water 对象中的 update 方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Water-对象中的-updatePostion-方法"><span class="toc-number">7.</span> <span class="toc-text">Water 对象中的 updatePostion 方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Water-对象中的-drawframe-方法"><span class="toc-number">8.</span> <span class="toc-text">Water 对象中的 drawframe 方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Html-文件"><span class="toc-number">9.</span> <span class="toc-text">Html 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Css-文件"><span class="toc-number">10.</span> <span class="toc-text">Css 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript-文件"><span class="toc-number">11.</span> <span class="toc-text">JavaScript 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本效果的兼容性"><span class="toc-number">12.</span> <span class="toc-text">本效果的兼容性</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+
+  
+    
+
+  
+    
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2017 <a href="https://github.com/iq9891" target="_blank">李梦龙</a>
+    </div>
+     <div id="footer-right">
+      Contact&nbsp;|&nbsp;649076408@qq.com
+    </div>
+  </div>
+</footer>
+<script src="//iq9891.github.io/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="//iq9891.github.io/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+
+    
+
+
+    	<script type="text/javascript">
+        var duoshuoQuery = {short_name:"true"};
+      </script>
+      <script src="//iq9891.github.io/duoshuo/embed.js"></script>
+
+
+<script src="//iq9891.github.io/js/is.js"></script>
+
+
+  <link href="//iq9891.github.io/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css">
+  <script src="//iq9891.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="//iq9891.github.io/js/script.js"></script>
+<script src="//iq9891.github.io/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

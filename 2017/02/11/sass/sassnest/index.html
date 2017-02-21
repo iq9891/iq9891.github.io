@@ -7,20 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="运用 Sass 编写 CSS 样式，一大好处就是大大的省略了代码量，从而提高的开发的速度。那么都有哪些语法可以减少代码数量，提高开发效率呢？今天就为大家介绍一个非常实用的语法，那就是 Sass 的嵌套语法。下面我们就一起看看 Sass 的嵌套语法有多么的神奇吧。
 Demo 下载地址： https://github.com/iq9891/learn-sass.git 。
-关于 Sass 怎么声明变量">
+关于 Sass 的嵌套语法，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sass 的嵌套语法">
 <meta property="og:url" content="https://iq9891.github.io/2017/02/11/sass/sassnest/index.html">
 <meta property="og:site_name" content="奔跑中的前端">
 <meta property="og:description" content="运用 Sass 编写 CSS 样式，一大好处就是大大的省略了代码量，从而提高的开发的速度。那么都有哪些语法可以减少代码数量，提高开发效率呢？今天就为大家介绍一个非常实用的语法，那就是 Sass 的嵌套语法。下面我们就一起看看 Sass 的嵌套语法有多么的神奇吧。
 Demo 下载地址： https://github.com/iq9891/learn-sass.git 。
-关于 Sass 怎么声明变量">
-<meta property="og:updated_time" content="2017-02-11T15:20:20.000Z">
+关于 Sass 的嵌套语法，">
+<meta property="og:updated_time" content="2017-02-21T13:46:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sass 的嵌套语法">
 <meta name="twitter:description" content="运用 Sass 编写 CSS 样式，一大好处就是大大的省略了代码量，从而提高的开发的速度。那么都有哪些语法可以减少代码数量，提高开发效率呢？今天就为大家介绍一个非常实用的语法，那就是 Sass 的嵌套语法。下面我们就一起看看 Sass 的嵌套语法有多么的神奇吧。
 Demo 下载地址： https://github.com/iq9891/learn-sass.git 。
-关于 Sass 怎么声明变量">
+关于 Sass 的嵌套语法，">
   
   
     <link rel="icon" href="//iq9891.github.io/favicon.ico">
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <div id="header-inner" class="inner">
       <nav id="sub-nav">
         
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://iq9891.github.io"></form>
@@ -114,8 +114,8 @@ var _hmt = _hmt || [];
         
         <p>运用 Sass 编写 CSS 样式，一大好处就是大大的省略了代码量，从而提高的开发的速度。那么都有哪些语法可以减少代码数量，提高开发效率呢？今天就为大家介绍一个非常实用的语法，那就是 Sass 的嵌套语法。下面我们就一起看看 Sass 的嵌套语法有多么的神奇吧。</p>
 <p><a href="https://github.com/iq9891/learn-sass.git" target="_blank" rel="external">Demo</a> 下载地址： <a href="https://github.com/iq9891/learn-sass.git" target="_blank" rel="external"><code>https://github.com/iq9891/learn-sass.git</code></a> 。</p>
-<p>关于 Sass 怎么声明变量，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从GitHub克隆应用程序的启动器分支( nest )</span></div><div class="line">git <span class="built_in">clone</span> -b nest https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
+<p>关于 Sass 的嵌套语法，您可以通过在终端中运行以下命令来安装我们将在本教程中使用的应用程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#移动到您保存您的开发项目的文件夹。</span></div><div class="line"><span class="built_in">cd</span> /path/to/your/projects</div><div class="line"><span class="comment">#从 GitHub 克隆应用程序的启动器分支( nest )</span></div><div class="line">git <span class="built_in">clone</span> -b nest https://github.com/iq9891/learn-sass.git</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>如何安装并运行该项目，请阅读 <a href="https://github.com/iq9891/learn-sass/blob/nest/README.md" target="_blank" rel="external"><strong>README.md</strong></a> 。</p>
 <h2 id="Sass-选择器嵌套语法"><a href="#Sass-选择器嵌套语法" class="headerlink" title="Sass 选择器嵌套语法"></a>Sass 选择器嵌套语法</h2><p>之所以叫嵌套语法，是因为 Sass 允许在书写一些包含选择符的时候可以简便书写，从而达到同样的目的。</p>
@@ -132,7 +132,7 @@ var _hmt = _hmt || [];
 <figure class="highlight css"><figcaption><span> </span><a href="https://github.com/iq9891/learn-sass/blob/nest/css/quote.css" target="_blank" rel="external">quote.css</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">color</span>: red;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">  <span class="attribute">color</span>: blue;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.tab</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.tab-header</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.tab-footer</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Sass-嵌套的好处"><a href="#Sass-嵌套的好处" class="headerlink" title="Sass 嵌套的好处"></a>Sass 嵌套的好处</h2><h3 id="结构清晰"><a href="#结构清晰" class="headerlink" title="结构清晰"></a>结构清晰</h3><p>Sass 的嵌套语法，可以让结构很清晰。可以写出可阅读性非常高的 Sass 代码块。</p>
 <h3 id="开发快"><a href="#开发快" class="headerlink" title="开发快"></a>开发快</h3><p>Sass 的嵌套语法，可以有效的减少源代码的书写数量，从而加快开发的速度。</p>
-<p>通过以上介绍，相比大家已经知道了 Sass 是什么了吧。如果你对 Sass 就此产生了浓厚的兴趣，那么还请翻看本博客其他关于 <a href="/categories/Sass/">Sass 的文章</a>吧。</p>
+<p>通过以上介绍，想必大家已经知道了 Sass 是什么了吧。如果你对 Sass 就此产生了浓厚的兴趣，那么还请翻看本博客其他关于 <a href="/categories/Sass/">Sass 的文章</a>吧。</p>
 
         <hr style="margin: 1.6em 0;">
         <p>转载请注明出处：<a href="/2017/02/11/sass/sassnest/">https://iq9891.github.io/2017/02/11/sass/sassnest/</a></p>
@@ -142,7 +142,7 @@ var _hmt = _hmt || [];
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="https://iq9891.github.io/2017/02/11/sass/sassnest/" data-id="ciz1f1d5e0003jz95ocvjl947" class="article-share-link">分享</a> -->
+      <!-- <a data-url="https://iq9891.github.io/2017/02/11/sass/sassnest/" data-id="ciz1f1d5e0003jz95ocvjl947" class="article-share-link">Share</a> -->
       <div class="bdsharebuttonbox" style="float:right;padding-left:15px;">
         <a href="#" class="bds_more" data-cmd="more" style="margin: 2px 6px;"></a>
         <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信" style="margin: 2px 4px;"></a>
@@ -152,11 +152,11 @@ var _hmt = _hmt || [];
       </div>
       <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       <!-- 
-        <a href="https://iq9891.github.io/2017/02/11/sass/sassnest/#ds-thread" class="article-comment-link">留言</a>
+        <a href="https://iq9891.github.io/2017/02/11/sass/sassnest/#ds-thread" class="article-comment-link">Comments</a>
       
        -->
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gulp/">Gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li></ul>
 
     </footer>
   </div>
@@ -165,7 +165,7 @@ var _hmt = _hmt || [];
 <nav id="article-nav">
   
     <a href="/2017/02/11/sass/sassmixin/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           Sass 中的混合( Mixin )
@@ -175,7 +175,7 @@ var _hmt = _hmt || [];
   
   
     <a href="/2017/02/11/sass/sassvar/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Sass 怎么声明变量</div>
     </a>
   
@@ -203,7 +203,7 @@ var _hmt = _hmt || [];
     
       <div class="widget" id="toc-widget-fixed">
       
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Content</strong>
         <div class="toc-widget-list">
               <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sass-选择器嵌套语法"><span class="toc-number">1.</span> <span class="toc-text">Sass 选择器嵌套语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sass-属性嵌套语法"><span class="toc-number">2.</span> <span class="toc-text">Sass 属性嵌套语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用父级选择符"><span class="toc-number">3.</span> <span class="toc-text">引用父级选择符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sass-嵌套的好处"><span class="toc-number">4.</span> <span class="toc-text">Sass 嵌套的好处</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#结构清晰"><span class="toc-number">4.1.</span> <span class="toc-text">结构清晰</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开发快"><span class="toc-number">4.2.</span> <span class="toc-text">开发快</span></a></li></ol></li></ol>
           </div>
@@ -238,7 +238,7 @@ var _hmt = _hmt || [];
       &copy; 2014 - 2017 <a href="https://github.com/iq9891" target="_blank">李梦龙</a>
     </div>
      <div id="footer-right">
-      联系方式&nbsp;|&nbsp;649076408@qq.com
+      Contact&nbsp;|&nbsp;649076408@qq.com
     </div>
   </div>
 </footer>
